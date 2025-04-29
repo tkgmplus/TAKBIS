@@ -1,0 +1,2 @@
+program_versiyon=25.1
+kurulum_versiyon=25.1

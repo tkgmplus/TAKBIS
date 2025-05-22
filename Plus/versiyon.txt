@@ -1,2 +1,2 @@
-program_versiyon=25.8
-kurulum_versiyon=25.9
+program_versiyon=25.7
+kurulum_versiyon=25.8

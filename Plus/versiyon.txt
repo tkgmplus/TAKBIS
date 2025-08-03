@@ -1,2 +1,2 @@
-program_versiyon=25.11
+program_versiyon=25.12
 kurulum_versiyon=25.8

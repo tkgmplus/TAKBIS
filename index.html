@@ -352,9 +352,47 @@
       pointer-events: none;
     }
  
- 
- 
- 
+	 
+	 
+	  /* MODAL TEMEL STİL */
+	.modal {
+	  display: none;
+	  position: fixed;
+	  z-index: 999;
+	  padding-top: 60px;
+	  left: 0; top: 0;
+	  width: 100%; height: 100%;
+	  overflow: auto;
+	  background-color: rgba(0,0,0,0.5);
+	}
+	
+	.modal-content {
+	  background-color: #fff;
+	  margin: auto;
+	  padding: 30px;
+	  border-radius: 10px;
+	  width: 90%;
+	  max-width: 600px;
+	  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+	  animation: fadeIn 0.4s ease;
+	}
+	
+	.close {
+	  color: #888;
+	  float: right;
+	  font-size: 24px;
+	  font-weight: bold;
+	  cursor: pointer;
+	}
+	
+	.close:hover {
+	  color: #000;
+	}
+	
+	@keyframes fadeIn {
+	  from {opacity: 0; transform: translateY(-20px);}
+	  to {opacity: 1; transform: translateY(0);}
+	} 
  
  
  
@@ -408,7 +446,7 @@
 	            <div class="feature" onclick="openModaldiv('modal-4')">
 	                <i class="fas fa-sms"></i>
 	                <h3>Sms Gönderme</h3>
-	                <p>Müdürlüğe özel şablonlarla tek tıkla SMS gönderimi sağlar.</p>
+	                <p>Müdürlüğe özel şablonlarla sağ tıkla SMS gönderimi sağlar.</p>
 	            </div>
 	        </div>
 	
@@ -417,7 +455,7 @@
 	            <div class="feature" onclick="openModaldiv('modal-5')">
 	                <i class="fas fa-keyboard"></i>
 	                <h3>İşlem Açıklama Girme</h3>
-	                <p>Müdürlüğe özel şablonlarla işlem açıklaması ekleme imkanı sunar.</p>
+	                <p>MSağ tıkla Tarih, Saat ve işlem açıklaması ekleme imkanı sunar.</p>
 	            </div>
 	        </div>
 	
@@ -447,18 +485,13 @@
 	                <p>Kuruma ait tüm bağlantılara hızlı erişim imkanı sunar.</p>
 	            </div>
 	        </div>
-	    </div>
-	</section>
-	
-	<section>
-	    <h2><i class="fas fa-tasks"></i> Yapılması Planlananlar</h2>
-	    <div class="features">
+
 	        <!-- Sağ Tıkla Tüzel Kişi Numarası Girme -->
 	        <div class="cik" >
 	            <div class="feature" onclick="openModaldiv('modal-9')">
 	                <i class="fas fa-id-card"></i>
 	                <h3>Tüzel Kişi Numarası Girme</h3>
-	                <p>Tüzel kişi numarasını sağ tıklayarak ekleme özelliği eklenmesi planlanmaktadır.</p>
+	                <p>Tüzel kişilikleri sağ tıklayarak sorgulama imkanı sunar.</p>
 	            </div>
 	        </div>
 	
@@ -467,9 +500,18 @@
 	            <div class="feature" onclick="openModaldiv('modal-10')">
 	                <i class="fas fa-exclamation-triangle"></i>
 	                <h3>İşlem İhlali Girme</h3>
-	                <p>İşlem ihlali açıklamalarını sağ tıklayarak ekleme özelliği eklenmesi planlanmaktadır.</p>
+	                <p>İşlem ihlali açıklamalarını sağ tıklayarak ekleme imkanı sunar.</p>
 	            </div>
 	        </div>
+		    
+		    
+		    
+	    </div>
+	</section>
+	
+	<section>
+	    <h2><i class="fas fa-tasks"></i> Yapılması Planlananlar</h2>
+	    <div class="features">
 	
 	        <!-- Takbis Çökme Sorunu (Zaten Çalışıyor Hatası) Çözme -->
 	        <div class="cik" >
@@ -506,6 +548,36 @@
 	                <p>Mirasçı hisse oranları otomatik olarak sisteme girme özelliği planlanmaktadır.</p>
 	            </div>
 	        </div>
+
+	        <!-- Kurum içi Mesajlaşma Uygulaması -->
+                <!-- 📩 Kurum içi Mesajlaşma Uygulaması -->
+                <div class="cik">
+                    <div class="feature" onclick="openModaldiv('modal-14')">
+        <i class="fas fa-comments"></i>
+        <h3> Kurum içi Mesajlaşma </h3>
+        <p>WP tarzı kurum içi mesajlaşma uygulama özelliği planlanmaktadır.</p>
+    </div>
+</div>
+
+<!-- 📁 Kurum içi Dosya Gönderme Uygulaması -->
+<div class="cik">
+    <div class="feature" onclick="openModaldiv('modal-14')">
+        <i class="fas fa-file-upload"></i>
+        <h3> Kurum içi Dosya </h3>
+        <p>WP tarzı kurum içi dosya gönderme uygulama özelliği planlanmaktadır.</p>
+    </div>
+</div>
+
+<!-- ⚠️ TAKBİS IP Çakışma Sorunu (Manuel Çözüm Planlanıyor) -->
+<div class="cik">
+    <div class="feature" onclick="openModaldiv('modal-ip')">
+        <i class="fas fa-exclamation-triangle"></i>
+        <h3> TAKBİS IP Çakışma </h3>
+        <p>TAKBİS uygulamasındaki IP çakışma sorununun manuel olarak çözülmesi planlanmaktadır.</p>
+    </div>
+</div>
+		    
+		    
 	    </div>
 	</section>
 
@@ -518,53 +590,149 @@
 	
 
 <!-- Modal Yapısı -->  
-<div id="modal-1" class="modal">  
-    <div class="modal-content">  
-        <span class="close" onclick="closeModaldiv('modal-1')">&times;</span>  
-        <h3>Arka Plan Kurtarma</h3>  
-        <p>Takbis Plus, herhangi bir yazılım hatasında tüm işlemlerinizi geri yükler. Arka planda veri kaybı yaşamadan, işlemlerinize kaldığınız yerden devam edebilirsiniz. Bu özellik, kullanıcı deneyimini güçlendirir ve kesintisiz çalışma sağlar.</p>  
-    </div>  
-</div>  
+ <!-- MODAL: Otomatik E-imza -->
+<div id="modal-a1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-1')">&times;</span>
+    <h3>Otomatik E-imza</h3>
+    <p>Belgelerinizi elektronik ortamda güvenli, yasal geçerliliğe sahip ve kullanıcı müdahalesine gerek kalmadan imzalamanıza olanak tanır. Zaman kazandırır, işlem yoğunluğunu azaltır.</p>
+  </div>
+</div>
 
-<div id="modal-2" class="modal">  
-    <div class="modal-content">  
-        <span class="close" onclick="closeModaldiv('modal-2')">&times;</span>  
-        <h3>Zaman Kazandırır</h3>  
-        <p>Takbis Plus, sık yapılan işlemleri otomatize eder ve süreci hızlandırır. Zaman kazandıran bu özellik, kullanıcıların daha verimli çalışmasına olanak tanır ve iş gücünden tasarruf sağlar.</p>  
-    </div>  
-</div>  
+<!-- MODAL: Otomatik Belge Onay -->
+<div id="modal-s2" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-2')">&times;</span>
+    <h3>Otomatik Belge Onay</h3>
+    <p>Hazırlanan belgeleri kurum içi kurallara göre otomatik olarak onaylayarak iş akışını hızlandırır ve manuel hataların önüne geçer.</p>
+  </div>
+</div>
 
-<div id="modal-3" class="modal">  
-    <div class="modal-content">  
-        <span class="close" onclick="closeModaldiv('modal-3')">&times;</span>  
-        <h3>Kişiselleştirilebilir</h3>  
-        <p>Takbis Plus, kişisel tercihlere göre özelleştirilebilir. Kullanıcılar, yazılımı kendi iş akışlarına uygun şekilde uyarlayarak daha verimli çalışabilirler. Rutin görevler, kullanıcıların tercihlerine göre hızlandırılabilir veya kolaylaştırılabilir.</p>  
-    </div>  
-</div>  
+<!-- MODAL: Otomatik İlmuhaber -->
+<div id="modal-a3" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-3')">&times;</span>
+    <h3>Otomatik İlmuhaber</h3>
+    <p>İlmuhaber belgeleri sistem üzerinden hızlıca oluşturularak, eksiksiz ve kuruma özel formatta kullanıcıya sunulur. Süreçler standartlaşır.</p>
+  </div>
+</div>
 
-<div id="modal-4" class="modal">  
-    <div class="modal-content">  
-        <span class="close" onclick="closeModaldiv('modal-4')">&times;</span>  
-        <h3>Akıllı Bildirimler</h3>  
-        <p>Takbis Plus, kullanıcılara önemli bildirimler ve uyarılar gönderir. Yazılımda bir güncelleme veya kritik bir değişiklik olduğunda, kullanıcılar anında haberdar edilir. Bu bildirimler, iş akışlarını kesintiye uğratmadan, kullanıcıların işlerini düzenli bir şekilde sürdürmelerini sağlar.</p>  
-    </div>  
-</div>  
+<!-- MODAL: SMS Gönderme -->
+<div id="modal-a4" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-4')">&times;</span>
+    <h3>SMS Gönderme</h3>
+    <p>Sağ tıklama menüsü üzerinden vatandaşlara tek tıkla, müdürlüğe özgü şablonlarla SMS gönderme imkânı sunar. Hızlı ve etkili iletişim sağlar.</p>
+  </div>
+</div>
 
-<div id="modal-5" class="modal">  
-    <div class="modal-content">  
-        <span class="close" onclick="closeModaldiv('modal-5')">&times;</span>  
-        <h3>Estetik Arayüz</h3>  
-        <p>Takbis Plus, sade ve modern bir tasarıma sahiptir. Kullanıcı dostu arayüzü sayesinde, yazılımı kullanmak oldukça basittir. Tüm özellikler, kullanıcıların kolayca erişebileceği şekilde düzenlenmiştir.</p>  
-    </div>  
-</div>  
+<!-- MODAL: İşlem Açıklama Girme -->
+<div id="modal-a5" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-5')">&times;</span>
+    <h3>İşlem Açıklama Girme</h3>
+    <p>İşlem açıklamalarını hızlıca, hazır metinlerle sisteme eklemenize olanak tanır. Yazım hatalarını azaltır, işlem sürelerini kısaltır.</p>
+  </div>
+</div>
 
-<div id="modal-6" class="modal">  
-    <div class="modal-content">  
-        <span class="close" onclick="closeModaldiv('modal-6')">&times;</span>  
-        <h3>Güvenli ve Hızlı</h3>  
-        <p>Takbis Plus, güvenli ve hızlı çalışmak üzere tasarlanmıştır. Hafif yapısı sayesinde bilgisayarınızın performansını etkilemez ve aynı zamanda güçlü güvenlik önlemleri ile verilerinizin korunmasını sağlar.</p>  
-    </div>  
-</div>  
+<!-- MODAL: DSİ İzin Yazısı Girme -->
+<div id="modal-a6" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-6')">&times;</span>
+    <h3>DSİ İzin Yazısı Girme</h3>
+    <p>DSİ izin belgelerini hazır şablonlarla sisteme otomatik olarak eklemenizi sağlar. Belgeler hızlı ve eksiksiz şekilde tamamlanır.</p>
+  </div>
+</div>
+
+<!-- MODAL: Hicri - Miladi Dönüşüm -->
+<div id="modal-a7" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-7')">&times;</span>
+    <h3>Hicri - Miladi Dönüşüm</h3>
+    <p>Hicri ve Miladi tarihler arasında otomatik dönüşüm sağlayarak, resmi işlemlerde doğru tarih formatını sunar.</p>
+  </div>
+</div>
+
+<!-- MODAL: Bağlantı Linkleri -->
+<div id="modal-a8" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-8')">&times;</span>
+    <h3>Bağlantı Linkleri</h3>
+    <p>Kurum içi sık kullanılan web siteleri, sistemler ve uygulamalara tek noktadan erişim sağlar. İş akışını kolaylaştırır.</p>
+  </div>
+</div>
+
+<!-- MODAL: Tüzel Kişi Numarası Girme -->
+<div id="modal-9a" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-9')">&times;</span>
+    <h3>Tüzel Kişi Numarası Girme</h3>
+    <p>Tüzel kişi bilgilerini sisteme hızlıca ve doğru biçimde entegre etmenize olanak tanıyacak bir modül geliştirilecektir.</p>
+  </div>
+</div>
+
+<!-- MODAL: İşlem İhlali Girme -->
+<div id="modal-1a0" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-10')">&times;</span>
+    <h3>İşlem İhlali Girme</h3>
+    <p>İşlem ihlali açıklamalarının sisteme hızlı ve standart biçimde girilmesini sağlayacak kullanıcı dostu bir özellik planlanmaktadır.</p>
+  </div>
+</div>
+
+<!-- MODAL: Takbis Çökme Sorunu -->
+<div id="modal-1a1" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-11')">&times;</span>
+    <h3>Takbis Çökme Sorunu</h3>
+    <p>“Zaten çalışıyor” gibi yaygın Takbis hatalarını kullanıcı müdahalesi olmadan düzeltebilecek akıllı bir hata giderme aracı geliştirilecektir.</p>
+  </div>
+</div>
+
+<!-- MODAL: Otomatik Çökme Algılama -->
+<div id="modal-12a" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-12')">&times;</span>
+    <h3>Otomatik Çökme Algılama</h3>
+    <p>Takbis uygulamasında olası donma veya çökme durumlarını otomatik olarak tespit edip sistemin kendini yeniden başlatmasını sağlayacak bir özellik geliştirilecektir.</p>
+  </div>
+</div>
+
+<!-- MODAL: Mirasçı Bilgisi Girme -->
+<div id="modal-a13" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-13')">&times;</span>
+    <h3>Mirasçı Bilgisi Girme</h3>
+    <p>Veraset işlemlerinde, mirasçı bilgilerini otomatik olarak tanıyıp sisteme entegre edecek akıllı bir modül planlanmaktadır.</p>
+  </div>
+</div>
+
+<!-- MODAL: Mirasçı Hisse Oranı Girme -->
+<div id="modal-1a4" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-14')">&times;</span>
+    <h3>Mirasçı Hisse Oranı Girme</h3>
+    <p>Her bir mirasçının hisse oranını otomatik hesaplayarak hata riskini ortadan kaldıracak bu özellik, işlemleri büyük ölçüde kolaylaştıracaktır.</p>
+  </div>
+</div>
+
+<!-- MODAL: Kurum İçi Mesajlaşma -->
+<div id="modal-1a5" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-15')">&times;</span>
+    <h3>Kurum İçi Mesajlaşma</h3>
+    <p>WhatsApp benzeri arayüze sahip, departmanlar arası iletişimi kolaylaştıran, güvenli ve hızlı bir kurum içi mesajlaşma platformu geliştirilecektir.</p>
+  </div>
+</div>
+
+<!-- MODAL: Kurum İçi Dosya Gönderme -->
+<div id="modal-1a6" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModaldiv('modal-16')">&times;</span>
+    <h3>Kurum İçi Dosya Gönderme</h3>
+    <p>Personelin birbirine sürükle-bırak yöntemiyle dosya gönderebileceği, güvenli ve pratik bir dosya paylaşım sistemi planlanmaktadır.</p>
+  </div>
+</div> 
 
 
 
@@ -587,7 +755,9 @@
 	<img src="src/img/7.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
 	<img src="src/img/8.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
 	<img src="src/img/9.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/10.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">	    
+	<img src="src/img/10.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">	 
+        <img src="src/img/11.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">	
+        <img src="src/img/12.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">	
     </div>
 
 
@@ -779,3 +949,6 @@
 
 </body>  
 </html> 
+
+
+

@@ -1,2 +1,3 @@
 program_versiyon=25.13
 kurulum_versiyon=25.8
+Kurulum_boyut:150

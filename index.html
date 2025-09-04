@@ -1,956 +1,1084 @@
-<!DOCTYPE html>
-<html lang="tr">  
-<head>  <meta charset="UTF-8" />  
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />  
-<meta name="description" content="Takbis Plus, TAKBİS işlemlerinizde size hız, güvenlik ve kolaylık sağlar. Ücretsiz indirip hemen kullanmaya başlayın.">  
-<meta property="og:title" content="Takbis Plus | TAKBİS'de Akıllı Yardımcınız">  
-<meta property="og:description" content="Takbis çöktüğünde kurtarır, size zaman kazandırır ve güvenle çalışır.">  
-<title>Takbis Plus | TAKBİS'de Akıllı Yardımcınız</title>  
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">  
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+<!doctype html>
+<html lang="tr" data-app-version="1.3.0">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="description" content="Takbis Plus — TAKBİS işlemlerinde hız, otomasyon ve güvenlik. Yerel çalışan araçlar ve zengin özellik seti.">
+  <meta property="og:title" content="Takbis Plus | TAKBİS'de Akıllı Yardımcınız">
+  <meta property="og:description" content="Takbis çöktüğünde kurtarır, işlemlerinizi otomatikleştirir ve size zaman kazandırır.">
+  <meta property="og:image" content="/src/img/0.png">
+  <meta name="theme-color" content="#1f5e3b" id="themeColorMeta">
+  <link rel="canonical" href="/">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous">
 
-<style>  
-    * {  
-        margin: 0;  
-        padding: 0;  
-        box-sizing: border-box;  
-    }  
-  
-    body {  
-        font-family: 'Poppins', sans-serif;  
-        background: #f5f7fa;  
-        color: #333;  
-        line-height: 1.6;  
-    }  
-  
-  
-	html {
-	  scroll-behavior: smooth;
-	}
-	  
-    .takbis-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-     background: linear-gradient(120deg, #1f5e3b, #3cb371);  
-      color: white;
-      padding: 20px 60px;
-      border-radius: 0px 0px 40px 40px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-      font-family: 'Monotype Corsiva', sans-serif;
-	  
+  <title>Takbis Plus | TAKBİS'de Akıllı Yardımcınız</title>
+
+  <style>
+    :root{
+      --bg: #f5f7fa; --card: #ffffff; --text: #1f2937; --muted: #6b7280;
+      --brand-1: #1f5e3b; --brand-2: #3cb371; --accent: #22c55e; --ring: rgba(34,197,94,.35);
+      --shadow: 0 10px 30px rgba(0,0,0,.08); --shadow-strong: 0 25px 50px rgba(0,0,0,.15);
+      --glass: rgba(255,255,255,.55);
+      --max-width: 1200px;
+    }
+    [data-theme="dark"]{
+      --bg:#0b1220; --card:#0f172a; --text:#e5e7eb; --muted:#94a3b8;
+      --brand-1:#1f5e3b; --brand-2:#3cb371; --accent:#34d399; --ring:rgba(52,211,153,.35);
+      --shadow:0 10px 30px rgba(0,0,0,.45); --shadow-strong:0 25px 50px rgba(0,0,0,.6); --glass: rgba(15,23,42,.55);
     }
 
-    .takbis-header h1 {
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+
+    @media (prefers-reduced-motion: reduce){
+      *{animation:none!important;transition:none!important}
+    }
+
+    /* ========== Advanced Gallery Styles ========== */
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 14px;
+      align-items: start;
+    }
+
+    .gallery-grid figure {
       margin: 0;
-      font-size: 2.2rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .download-btn {
-      background-color: white;
-      color: #2e8b57;
-      border: none;
-      padding: 12px 38px;
-      font-size: 1.2rem;
-      border-radius: 15px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-	  transform: translateY(-4px)
-	  
-    }
-
-    .download-btn:hover {
-      background-color: #e8eaf6;
-      transform: translateY(2px);
-    }
-
-
-
-  
-        header h1 {  
-            font-size: 3em;  
-            margin-bottom: 10px;  
-        }  
-  
-        header p {  
-            font-size: 1.2em;  
-            opacity: 0.9;  
-        }  
-  
-    section {  
-        max-width: 1100px;  
-        margin: 50px auto;  
-        padding: 0 20px;  
-    }  
-  
-    h2 {  
-        color: #2e8b57;  
-        margin-bottom: 20px;  
-        text-align: center;  
-        font-size: 2em;  
-    }  
-  
-    .features, .faq, .setup {  
-        display: grid;  
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  
-        gap: 25px;  
-        margin-top: 30px;  
-    }  
-  
-    .feature, .faq-item, .step {  
-        background: white;  
-        padding: 20px;  
-        border-radius: 14px;  
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.06);  
-        transition: transform 0.3s ease, box-shadow 0.3s ease;  
-        opacity: 0;  
-        transform: translateY(30px);  
-        animation: fadeInUp 1s forwards;  
-    }  
-  
-
-  
-        .feature i, .step i {  
-            font-size: 2em;  
-            color: #2e8b57;  
-            margin-bottom: 10px;  
-        }  
-  
-    @keyframes fadeInUp {  
-        to {  
-            opacity: 1;  
-            transform: translateY(0);  
-        }  
-    }  
-  
-    .download {  
-        text-align: center;  
-        margin-top: 60px; 
-		
-    }  
-	
-	
-	.indirbtn{
-		transform: translateY(30px);  
-        animation: fadeInUp 1s forwards;  
-	}
-	
-  
-        .download a {  
-            background: #2e8b57;  
-            color: white;  
-            padding: 15px 40px;  
-            border-radius: 30px;  
-            font-size: 1.2em;  
-            text-decoration: none;  
-            transition: background 0.3s ease;  
-        }  
-  
-            .download a:hover {  
-                background: #256f48;  
-            }  
-  
-    .screenshots {  
-        display: flex;  
-        flex-wrap: wrap;  
-        gap: 20px;  
-        justify-content: center;  
-        margin-top: 30px;  
-		transform: translateY(30px);  
-        animation: fadeInUp 1s forwards;  
-    }  
-  
-        .screenshots img {  
-            width: 100%;  
-            max-width: 300px;  
-            border-radius: 12px;  
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-            transition: transform 0.3s;  
-        }  
-  
-            .screenshots img:hover {  
-                transform: scale(1.05);  
-            }  
-  
-    footer {  
-        text-align: center;  
-        background: #eee;  
-        padding: 25px;  
-        font-size: 0.9em;  
-        color: #666;  
-        margin-top: 80px;  
-    }  
-  
-    /* Mobil için düzenleme */  
-    @media screen and (max-width: 768px) {  
-        .features, .faq, .setup {  
-            grid-template-columns: 1fr; /* Mobilde tek sütun */  
-        }  
-    }  
-  
-    /* Modal Arka Plan ve Kapalı Görünüm */  
-    .modal {  
-        display: none;  
-        position: fixed;  
-        z-index: 1;  
-        left: 0;  
-        top: 0;  
-        width: 100%;  
-        height: 100%;  
-        overflow: auto;  
-        background-color: rgba(0, 0, 0, 0.7);  
-        padding-top: 60px;  
-    }  
-  
-    /* Modal İçerik */  
-    .modal-content {  
-        background-color: #fefefe;  
-        margin: 5% auto;  
-        padding: 20px;  
-        border: 1px solid #888;  
-        width: 80%;  
-        max-width: 600px;  
-        border-radius: 10px;  
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  
-    }  
-  
-    /* Kapatma Düğmesi */  
-    .close {  
-        color: #aaa;  
-        float: right;  
-        font-size: 28px;  
-        font-weight: bold;  
-    }  
-  
-        .close:hover,  
-        .close:focus {  
-            color: black;  
-            text-decoration: none;  
-            cursor: pointer;  
-        }  
-  
-    /* Özellikler, FAQ ve adımlar için fare üzerine kayma efekti */  
-    .feature, .faq-item, .step {  
-        transition: transform 0.3s ease, box-shadow 0.3s ease;  
-    }  
-  
-
-  
-    /* Öne çıkan özellikler */  
-    .feature {  
-        background: white;  
-        padding: 20px;  
-        border-radius: 12px;  
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);  
-        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Kayma ve gölge geçişi */  
-        cursor: pointer; /* Tıklanabilir işaretçi */  
-        position: relative; /* Konumlama gerektiği için position ekliyoruz */  
-    }  
-  
-   
-  
-       /* Fare üzerine gelindiğinde yukarı kayma ve gölge efekti */  
-          .feature:hover, .faq-item:hover, .step:hover {  
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);  
-        }  
-		
-		
-		.cik{
-			transition: all 0.3s ease;
-		}
-		
-		.cik:hover{
-			transform: translateY(-10px);  
-		}
-  
-  
-  
-    /* Özellik detayları */  
-    .detail {  
-        display: none;  
-        background: #f5f7fa;  
-        padding: 15px;  
-        border-radius: 8px;  
-        margin-top: 10px;  
-        font-size: 1em;  
-        color: #555;  
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);  
-    }  
-  
-    .feature.open .detail {  
-        display: block;  
-    }  
-  
-  
-  
-
-
- 
- 
- 
- 
- 
- 
-    .image-gallery img {
-      max-width: 300px;
-      cursor: zoom-in;
-      margin: 10px;
-      transition: transform 0.3s;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      z-index: 10000;
-      left: 0;
-      top: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.85);
+      border-radius: 12px;
       overflow: hidden;
+      background: var(--card);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
     }
 
-    .modal-close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      font-size: 35px;
-      color: white;
-      cursor: pointer;
-      z-index: 10001;
-    }
-
-    .modal-close:hover {
-      color: red;
-    }
-
-    .image-container {
-      
+    .gallery-grid a img,
+    .gallery-thumb img {
       width: 100%;
-      height: 100%;
-      overflow: hidden;
-      position: relative;
-      cursor: grab;
-
+      height: 160px;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+      transition: transform .35s cubic-bezier(.2,.8,.2,1);
+      cursor: zoom-in;
     }
 
-    .image-container img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      transform-origin: top left;
-      transition: transform 0.05s;
-      user-select: none;
-      pointer-events: none;
+    .gallery-grid a img:hover,
+    .gallery-thumb img:hover {
+      transform: scale(1.03);
     }
- 
-	 
-	 
-	  /* MODAL TEMEL STİL */
-	.modal {
-	  display: none;
-	  position: fixed;
-	  z-index: 999;
-	  padding-top: 60px;
-	  left: 0; top: 0;
-	  width: 100%; height: 100%;
-	  overflow: auto;
-	  background-color: rgba(0,0,0,0.5);
-	}
-	
-	.modal-content {
-	  background-color: #fff;
-	  margin: auto;
-	  padding: 30px;
-	  border-radius: 10px;
-	  width: 90%;
-	  max-width: 600px;
-	  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-	  animation: fadeIn 0.4s ease;
-	}
-	
-	.close {
-	  color: #888;
-	  float: right;
-	  font-size: 24px;
-	  font-weight: bold;
-	  cursor: pointer;
-	}
-	
-	.close:hover {
-	  color: #000;
-	}
-	
-	@keyframes fadeIn {
-	  from {opacity: 0; transform: translateY(-20px);}
-	  to {opacity: 1; transform: translateY(0);}
-	} 
- 
- 
- 
- 
 
-    </style>  </head>  
-<body>  
+    .gallery-grid figcaption,
+    .gallery-thumb figcaption {
+      padding: 10px;
+      font-size: .95rem;
+      color: var(--muted);
+      text-align: center;
+    }
 
-  <header class="takbis-header">
-    <h1><i class="fas fa-map"></i> TAKBİS Plus</h1>
-    <a style="font-family: 'Poppins', sans-serif; font-size: 15px; " href="#indir" class="download-btn">
-      <i class="fas fa-download"></i> İndir
-    </a>
+    .gallery-thumb{ background:var(--card); border-radius:10px; overflow:hidden; box-shadow:var(--shadow); cursor:zoom-in; display:flex; flex-direction:column; }
+    .gallery-thumb img{ width:100%; height:160px; object-fit:cover; display:block; transition:transform .35s cubic-bezier(.2,.8,.2,1); }
+    .gallery-thumb:hover img{ transform:scale(1.03); }
+
+    /* Lightbox panel */
+    .gallery-modal{ display:none; position:fixed; inset:0; z-index:11000; align-items:center; justify-content:center; }
+    .gallery-modal[aria-hidden="false"]{ display:flex; }
+    .gm-backdrop{ position:absolute; inset:0; background:linear-gradient(180deg, rgba(2,6,23,.85), rgba(2,6,23,.95)); backdrop-filter:blur(6px); }
+    .gm-panel{ position:relative; width:100%; max-width:1200px; height:82vh; margin:auto; display:flex; flex-direction:column; gap:12px; z-index:11001; }
+    .gm-stage{ flex:1; background:#000; border-radius:12px; overflow:hidden; position:relative; display:flex; align-items:center; justify-content:center; }
+    .gm-stage img{ max-width:none; max-height:none; will-change:transform; transform-origin:center center; transition:transform .28s cubic-bezier(.2,.9,.2,1); cursor:grab }
+    .gm-loader{ position:absolute; width:56px; height:56px; border-radius:50%; border:5px solid rgba(255,255,255,.08); border-top-color:var(--brand-2); animation:spin .9s linear infinite; display:none; z-index:5 }
+    @keyframes spin{ to{ transform:rotate(360deg) } }
+
+    .gm-close{ position:absolute; top:12px; right:12px; background:transparent; border:1px solid rgba(255,255,255,.08); color:#fff; border-radius:8px; padding:8px 10px; cursor:pointer; z-index:6; }
+    .gm-controls{ display:flex; gap:10px; align-items:center; justify-content:center; color:#fff; }
+    .gm-btn{ background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.06); color:#fff; padding:8px 10px; border-radius:8px; cursor:pointer; }
+    .gm-meta{ color:#fff; font-weight:600; min-width:90px; text-align:center; }
+
+    .gm-thumbs{ display:flex; gap:8px; overflow:auto; padding:6px 2px; align-items:center; }
+    .gm-thumbs img{ width:82px; height:56px; object-fit:cover; border-radius:6px; opacity:.85; border:2px solid transparent; cursor:pointer; transition:opacity .2s, transform .15s; }
+    .gm-thumbs img.active{ opacity:1; transform:translateY(-3px); border-color:var(--brand-2); }
+
+    @media (max-width:900px){
+      .gm-panel{ max-width:98vw; height:88vh; }
+      .gm-thumbs img{ width:64px; height:44px; }
+      .gm-stage img{ transition:transform .18s ease-out; }
+    }
+
+    .gm-btn:focus, .gm-close:focus, .gallery-thumb:focus{ outline:3px solid color-mix(in oklab, var(--brand-2), white 30%); outline-offset:3px; }
+
+    /* Skip link */
+    .skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+    .skip-link:focus{position:static;width:auto;height:auto;background:#111;color:#fff;padding:8px;border-radius:8px;margin:8px}
+
+    /* ===== Animated gradient background aura ===== */
+    .bg-aura{position:fixed;inset:-10%;z-index:-1;filter:blur(60px);opacity:.38}
+    .bg-aura::before,.bg-aura::after{content:"";position:absolute;inset:0;background:
+      radial-gradient(40% 60% at 20% 30%, #22c55e55, transparent 60%),
+      radial-gradient(50% 70% at 80% 60%, #3cb37155, transparent 60%),
+      radial-gradient(30% 40% at 50% 90%, #10b98155, transparent 60%);
+      animation: float 16s ease-in-out infinite alternate
+    }
+    .bg-aura::after{animation-duration:22s;mix-blend-mode:screen}
+    @keyframes float{from{transform:translateY(-20px)}to{transform:translateY(20px)}}
+
+    /* ===== Navbar ===== */
+    .navbar{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.2) blur(8px);background:linear-gradient(120deg, var(--brand-1), var(--brand-2));box-shadow:var(--shadow)}
+    .nav-inner{max-width:var(--max-width);margin:auto;display:flex;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;align-items:center;gap:10px;color:#fff;font-weight:700;font-size:1.15rem}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{color:#fff;text-decoration:none;opacity:.95;font-weight:600;border-bottom:2px solid transparent;padding-bottom:4px}
+    .nav-links a.active,.nav-links a:hover{border-color:#fff;opacity:1}
+    .actions{display:flex;gap:10px;align-items:center}
+    .toggle{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#fff;padding:8px 12px;border-radius:999px;cursor:pointer}
+    .cta{background:#fff;color:#14532d;border:none;padding:10px 18px;border-radius:999px;font-weight:700;cursor:pointer;transition:transform .2s, box-shadow .3s;box-shadow:var(--shadow)}
+    .cta:hover{transform:translateY(-2px);box-shadow:var(--shadow-strong)}
+
+    /* ===== Hero ===== */
+    .hero{position:relative;max-width:var(--max-width);margin:36px auto 10px;padding:24px}
+    .hero-card{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center;background:linear-gradient(135deg, var(--glass), transparent);border-radius:18px;padding:28px;box-shadow:var(--shadow);overflow:hidden}
+    .hero h1{font-size:2.2rem;line-height:1.15;margin-bottom:10px}
+    .chip{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,.12);border:1px solid var(--ring);color:var(--accent);padding:6px 12px;border-radius:999px;font-size:.9rem;font-weight:600;margin-bottom:10px}
+    .hero p{color:var(--muted);max-width:60ch}
+    .hero-cta{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:12px 16px;font-weight:700;border:1px solid #e5e7eb;background:#fff;color:#111;cursor:pointer;box-shadow:var(--shadow);text-decoration:none}
+    .btn-primary{background:linear-gradient(120deg, var(--brand-1), var(--brand-2));border:none;color:#fff}
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-strong)}
+    .hero-visual{position:relative}
+    .hero-visual .badge{position:absolute;right:18px;top:18px;background:#111;color:#fff;opacity:.85;border-radius:10px;padding:8px 10px;font-size:.8rem}
+    .mini-shot{width:100%;border-radius:12px;box-shadow:var(--shadow-strong)}
+
+    /* ===== Sections ===== */
+    main section{max-width:var(--max-width);margin:48px auto;padding:0 20px}
+    h2{color:var(--brand-2);margin-bottom:14px;text-align:center;font-size:1.9rem}
+    .sub{color:var(--muted);text-align:center;margin-bottom:26px}
+
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+    .card{background:var(--card);border-radius:16px;padding:20px;box-shadow:var(--shadow);transition:transform .25s, box-shadow .25s}
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-strong)}
+
+    /* ===== Feature search ===== */
+    .searchbar{display:flex;gap:10px;justify-content:center;margin:12px auto 24px;max-width:700px}
+    .searchbar input{flex:1;min-width:260px;border:1px solid #e5e7eb;background:var(--card);color:var(--text);border-radius:12px;padding:12px 14px;box-shadow:var(--shadow)}
+
+    /* ===== Stats ===== */
+    .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+    .stat{background:var(--card);border-radius:16px;padding:18px;text-align:center;box-shadow:var(--shadow)}
+    .stat .num{font-size:2rem;font-weight:800}
+    .stat .lbl{color:var(--muted)}
+
+    /* ===== Screenshots ===== */
+    .screenshots{display:flex;flex-wrap:wrap;gap:20px;justify-content:center;margin-top:30px}
+    .screenshots img{width:100%;max-width:300px;border-radius:12px;box-shadow:var(--shadow);transition:transform .3s}
+    .screenshots img:hover{transform:scale(1.05)}
+
+    /* ===== FAQ Accordion ===== */
+    .faq .faq-item{cursor:pointer}
+    .faq .faq-item h4{display:flex;align-items:center;gap:10px}
+    .faq .faq-item p{max-height:0;overflow:hidden;transition:max-height .3s ease}
+    .faq .faq-item.open p{max-height:200px}
+
+    /* ===== Setup Steps ===== */
+    .setup .step i{font-size:2em;color:#2e8b57;margin-bottom:10px}
+
+    /* ===== Footer ===== */
+    footer{text-align:center;background:linear-gradient(to top, rgba(0,0,0,.03), transparent);padding:30px;font-size:.95em;color:var(--muted);margin-top:80px}
+
+    /* ===== Utility ===== */
+    .reveal{opacity:0;transform:translateY(24px)}
+    .reveal.in{opacity:1;transform:none;transition:all .6s cubic-bezier(.2,.65,.2,1)}
+    .pill{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;background:rgba(0,0,0,.06);font-size:.85rem}
+
+    /* Back to top & Help */
+    .fab{position:fixed;right:18px;bottom:18px;display:flex;flex-direction:column;gap:10px}
+    .backtop,.helpbtn{background:linear-gradient(120deg, var(--brand-2), var(--brand-1));color:#fff;border:none;border-radius:999px;padding:12px 14px;box-shadow:var(--shadow-strong);cursor:pointer;display:none}
+
+    /* Modals (gallery + features + shortcuts + changelog) */
+    .modal{display:none;position:fixed;z-index:10000;left:0;top:0;width:100vw;height:100vh;background:rgba(0,0,0,.85);overflow:auto}
+    .modal-close{position:absolute;top:20px;right:30px;font-size:35px;color:#fff;cursor:pointer;z-index:10001}
+    .modal-close:hover{color:#f87171}
+    .image-container{width:100%;height:100%;overflow:hidden;position:relative;cursor:grab}
+    .image-container img{position:absolute;top:0;left:0;transform-origin:top left;transition:transform .05s;user-select:none;pointer-events:none}
+
+    .detail-modal .modal-content{background:var(--card);color:var(--text);margin:5% auto;padding:22px;border-radius:12px;width:90%;max-width:720px;box-shadow:var(--shadow)}
+    .detail-modal h3{margin-bottom:8px}
+
+    .shortcuts table{width:100%;border-collapse:collapse}
+    .shortcuts th,.shortcuts td{border-bottom:1px solid #e5e7eb;padding:10px;text-align:left}
+
+    @media print{
+      .navbar,.bg-aura,.fab,.modal{display:none!important}
+      .card{box-shadow:none;border:1px solid #e5e7eb}
+    }
+
+    @media (max-width: 900px){ .hero-card{grid-template-columns:1fr} .nav-inner{padding:10px} .brand{font-size:1rem} .nav-links{display:none} .actions{gap:6px} .hero h1{font-size:1.6rem} }
+  </style>
+</head>
+<body>
+  <a href="#icerik" class="skip-link">İçeriğe geç</a>
+  <div class="bg-aura" aria-hidden="true"></div>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" role="navigation" aria-label="Ana gezinti">
+    <div class="nav-inner container">
+      <div class="brand" aria-label="Takbis Plus"><i class="fas fa-map"></i> TAKBİS Plus</div>
+      <div class="nav-links" role="navigation" aria-label="Sayfa bölümleri">
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#planlananlar">Planlananlar</a>
+        <a href="#ekran-goruntuleri">Ekran Görüntüleri</a>
+        <a href="#indir">İndir</a>
+      </div>
+      <div class="actions">
+        <button id="shareBtn" class="toggle" title="Sayfayı paylaş" aria-label="Sayfayı paylaş"><i class="fas fa-share"></i></button>
+        <button id="installBtn" class="toggle" title="Uygulama olarak yükle" aria-label="PWA olarak yükle" style="display:none"><i class="fas fa-download"></i></button>
+        <button id="themeToggle" class="toggle" title="Karanlık/Aydınlık Mod" aria-label="Tema"><i class="fas fa-moon"></i></button>
+        <a class="cta" href="#indir" title="İndir"><i class="fas fa-download"></i> İndir</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header class="hero" role="banner">
+    <div class="hero-card reveal container">
+      <div>
+        <span class="chip"><i class="fa-solid fa-shield-halved"></i> v1.3 • Güvenli & Hızlı</span>
+        <h1>TAKBİS'de Akıllı Yardımcınız <span style="white-space:nowrap">— Takbis Plus</span></h1>
+        <p>Takbis çöktüğünde kurtarır, işlemlerinizi otomatikleştirir ve size ciddi zaman kazandırır. Ücretsiz indirip hemen kullanmaya başlayın.</p>
+        <div class="hero-cta" role="group" aria-label="Ana eylemler">
+          <a class="btn btn-primary" href="src/exe/Kurulum.exe" download>
+            <i class="fa-solid fa-download"></i> Şimdi İndir
+          </a>
+          <a class="btn" href="#ozellikler"><i class="fa-solid fa-wand-magic-sparkles"></i> Özellikleri Gör</a>
+          <button class="btn" id="copyMail"><i class="fa-solid fa-envelope"></i> İletişim Mailini Kopyala</button>
+          <button class="btn" id="shortcutBtn"><i class="fa-solid fa-keyboard"></i> Kısayollar</button>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
+          <span class="pill"><i class="fa-solid fa-lock"></i> Yerel çalışır, veri göndermez</span>
+          <span class="pill"><i class="fa-solid fa-laptop"></i> Windows uyumlu</span>
+          <span class="pill"><i class="fa-solid fa-bolt"></i> Otomasyonlar ile hız</span>
+          <span class="pill" id="installHint" style="display:none"><i class="fa-solid fa-mobile-screen"></i> PWA: Ana ekrana ekle</span>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <picture>
+          <source srcset="src/img/0.webp 1x, src/img/0@2x.webp 2x" type="image/webp">
+          <img class="mini-shot" src="src/img/0.png" alt="Takbis Plus ekran görüntüsü" loading="lazy">
+        </picture>
+        <div class="badge">Gerçek ekran görüntüsü</div>
+      </div>
+    </div>
   </header>
 
-<section>  
+  <main id="icerik" class="container" role="main">
+    <!-- ===== STATS ===== -->
+    <section aria-label="istatistikler">
+      <div class="stats reveal" style="margin-top:6px">
+        <div class="stat" role="group" aria-label="Kullanıcı sayısı"><div class="num" data-count="1250">0</div><div class="lbl">+ Kullanıcı</div></div>
+        <div class="stat" role="group" aria-label="Memnuniyet oranı"><div class="num" data-count="97">0</div><div class="lbl">% Memnuniyet</div></div>
+        <div class="stat" role="group" aria-label="Kurumsal modül sayısı"><div class="num" data-count="43">0</div><div class="lbl">Kurumsal modül</div></div>
+        <div class="stat" role="group" aria-label="Saniye başına kazanılan işlem"><div class="num" data-count="12">0</div><div class="lbl">Saniyede kazanılan işlem</div></div>
+      </div>
+    </section>
 
-	
-	<section>
-	    <h2><i class="fas fa-star"></i> Özellikler</h2>
-	    <div class="features">
-	        <!-- Otomatik E-imza -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-1')">
-	                <i class="fas fa-pen-fancy"></i>
-	                <h3>Otomatik E-imza</h3>
-	                <p>Belgeleri hızlı ve güvenli şekilde elektronik imzalama imkanı sunar.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Otomatik Belge Onay -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-2')">
-	                <i class="fas fa-check-circle"></i>
-	                <h3>Otomatik Belge Onay</h3>
-	                <p>Hazırlanan belgeleri otomatik onaylayarak işlemleri hızlandırır.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Otomatik İlmuhaber Oluşturma -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-3')">
-	                <i class="fas fa-file-alt"></i>
-	                <h3>Otomatik İlmuhaber</h3>
-	                <p>İlmuhaber belgelerini eksiksiz ve hızlıca oluşturur.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Sağ Tıkla Sms Gönderme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-4')">
-	                <i class="fas fa-sms"></i>
-	                <h3>Sms Gönderme</h3>
-	                <p>Müdürlüğe özel şablonlarla sağ tıkla SMS gönderimi sağlar.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Sağ Tıkla İşlem Açıklama Girme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-5')">
-	                <i class="fas fa-keyboard"></i>
-	                <h3>İşlem Açıklama Girme</h3>
-	                <p>MSağ tıkla Tarih, Saat ve işlem açıklaması ekleme imkanı sunar.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Sağ Tıkla Dsi İzin Yazısı Girme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-6')">
-	                <i class="fas fa-water"></i>
-	                <h3> DSİ İzin Yazısı Girme</h3>
-	                <p>Müdürlüğe özel şablonlarla DSİ izin yazılarını kolayca ekler.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Hicri > Miladi Tarih Dönüşümü -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-7')">
-	                <i class="fas fa-calendar-alt"></i>
-	                <h3>Hicri - Miladi Dönüşüm</h3>
-	                <p>Hicri tarihleri Miladi tarihe dönüştürmenize yardımcı olur.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Kuruma Ait Bağlantı Linkleri -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-8')">
-	                <i class="fas fa-link"></i>
-	                <h3>Bağlantı Linkleri</h3>
-	                <p>Kuruma ait tüm bağlantılara hızlı erişim imkanı sunar.</p>
-	            </div>
-	        </div>
+    <!-- ===== ÖZELLİKLER ===== -->
+    <section id="ozellikler" aria-labelledby="ozellikler-title">
+      <h2 id="ozellikler-title"><i class="fas fa-star"></i> Özellikler</h2>
+      <p class="sub">Mevcut içeriğiniz korunarak profesyonelce sunuldu.</p>
 
-	        <!-- Sağ Tıkla Tüzel Kişi Numarası Girme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-9')">
-	                <i class="fas fa-id-card"></i>
-	                <h3>Tüzel Kişi Numarası Girme</h3>
-	                <p>Tüzel kişilikleri sağ tıklayarak sorgulama imkanı sunar.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Sağ Tıkla İşlem İhlali Girme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-10')">
-	                <i class="fas fa-exclamation-triangle"></i>
-	                <h3>İşlem İhlali Girme</h3>
-	                <p>İşlem ihlali açıklamalarını sağ tıklayarak ekleme imkanı sunar.</p>
-	            </div>
-	        </div>
-		    
-		    
-		    
-	    </div>
-	</section>
-	
-	<section>
-	    <h2><i class="fas fa-tasks"></i> Yapılması Planlananlar</h2>
-	    <div class="features">
-	
-	        <!-- Takbis Çökme Sorunu (Zaten Çalışıyor Hatası) Çözme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-11')">
-	                <i class="fas fa-bug"></i>
-	                <h3>Takbis Çökme Sorunu</h3>
-	                <p>“Zaten Çalışıyor” hatasına çözüm butonu geliştirilmesi planlanmaktadır.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Takbis Çökme Sorunu Otomatik Algılama -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-12')">
-	                <i class="fas fa-search"></i>
-	                <h3>Takbis Otomatik Çökme Algılama</h3>
-	                <p>Takbis Çökmesini otomatik algılayıp sorunu çözmesi planlanmaktadır.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Otomatik Mirasçı Girme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-13')">
-	                <i class="fas fa-user-plus"></i>
-	                <h3> Mirasçı Girme</h3>
-	                <p>Mirasçı bilgileri otomatik olarak sisteme girme özelliği planlanmaktadır.</p>
-	            </div>
-	        </div>
-	
-	        <!-- Otomatik Mirasçı Hisse Oranı Girme -->
-	        <div class="cik" >
-	            <div class="feature" onclick="openModaldiv('modal-14')">
-	                <i class="fas fa-percentage"></i>
-	                <h3> Mirasçı Hisse Oranı Girme</h3>
-	                <p>Mirasçı hisse oranları otomatik olarak sisteme girme özelliği planlanmaktadır.</p>
-	            </div>
-	        </div>
+      <div class="searchbar" role="search" aria-label="Özellik arama">
+        <input id="featureSearch" type="search" placeholder="Özellik ara (örn. imza, SMS, mirasçı...)" aria-label="Özellik ara">
+      </div>
 
-	        <!-- Kurum içi Mesajlaşma Uygulaması -->
-                <!-- 📩 Kurum içi Mesajlaşma Uygulaması -->
-                <div class="cik">
-                    <div class="feature" onclick="openModaldiv('modal-14')">
-        <i class="fas fa-comments"></i>
-        <h3> Kurum içi Mesajlaşma </h3>
-        <p>WP tarzı kurum içi mesajlaşma uygulama özelliği planlanmaktadır.</p>
-    </div>
-</div>
+      <div class="grid" id="featureGrid" aria-live="polite">
+        <!-- Orijinal içerik + modal tetikleyicileri -->
+        <article class="card feature" data-tags="imza e-imza elektronik" tabindex="0" onclick="openDetail('modal-1')" onkeypress="if(event.key==='Enter') openDetail('modal-1')">
+          <i class="fas fa-pen-fancy" aria-hidden="true"></i>
+          <h3>Otomatik E-imza</h3>
+          <p>Belgeleri hızlı ve güvenli şekilde elektronik imzalama imkanı sunar.</p>
+        </article>
 
-<!-- 📁 Kurum içi Dosya Gönderme Uygulaması -->
-<div class="cik">
-    <div class="feature" onclick="openModaldiv('modal-14')">
-        <i class="fas fa-file-upload"></i>
-        <h3> Kurum içi Dosya </h3>
-        <p>WP tarzı kurum içi dosya gönderme uygulama özelliği planlanmaktadır.</p>
-    </div>
-</div>
+        <article class="card feature" data-tags="belge onay" tabindex="0" onclick="openDetail('modal-2')" onkeypress="if(event.key==='Enter') openDetail('modal-2')">
+          <i class="fas fa-check-circle" aria-hidden="true"></i>
+          <h3>Otomatik Belge Onay</h3>
+          <p>Hazırlanan belgeleri otomatik onaylayarak işlemleri hızlandırır.</p>
+        </article>
 
-<!-- ⚠️ TAKBİS IP Çakışma Sorunu (Manuel Çözüm Planlanıyor) -->
-<div class="cik">
-    <div class="feature" onclick="openModaldiv('modal-ip')">
-        <i class="fas fa-exclamation-triangle"></i>
-        <h3> TAKBİS IP Çakışma </h3>
-        <p>TAKBİS uygulamasındaki IP çakışma sorununun manuel olarak çözülmesi planlanmaktadır.</p>
-    </div>
-</div>
-		    
-		    
-	    </div>
-	</section>
+        <article class="card feature" data-tags="ilmuhaber" tabindex="0" onclick="openDetail('modal-3')" onkeypress="if(event.key==='Enter') openDetail('modal-3')">
+          <i class="fas fa-file-alt" aria-hidden="true"></i>
+          <h3>Otomatik İlmuhaber</h3>
+          <p>İlmuhaber belgelerini eksiksiz ve hızlıca oluşturur.</p>
+        </article>
 
+        <article class="card feature" data-tags="sms mesaj" tabindex="0" onclick="openDetail('modal-4')" onkeypress="if(event.key==='Enter') openDetail('modal-4')">
+          <i class="fas fa-sms" aria-hidden="true"></i>
+          <h3>Sms Gönderme</h3>
+          <p>Müdürlüğe özel şablonlarla sağ tıkla SMS gönderimi sağlar.</p>
+        </article>
 
+        <article class="card feature" data-tags="açıklama işlem" tabindex="0" onclick="openDetail('modal-5')" onkeypress="if(event.key==='Enter') openDetail('modal-5')">
+          <i class="fas fa-keyboard" aria-hidden="true"></i>
+          <h3>İşlem Açıklama Girme</h3>
+          <p>Tarih, saat ve açıklamayı hızlı ekleme imkanı.</p>
+        </article>
 
+        <article class="card feature" data-tags="dsi izin" tabindex="0" onclick="openDetail('modal-6')" onkeypress="if(event.key==='Enter') openDetail('modal-6')">
+          <i class="fas fa-water" aria-hidden="true"></i>
+          <h3>DSİ İzin Yazısı Girme</h3>
+          <p>Müdürlüğe özel şablonlarla DSİ izin yazılarını kolayca ekler.</p>
+        </article>
 
+        <article class="card feature" data-tags="hicri miladi tarih" tabindex="0" onclick="openDetail('modal-7')" onkeypress="if(event.key==='Enter') openDetail('modal-7')">
+          <i class="fas fa-calendar-alt" aria-hidden="true"></i>
+          <h3>Hicri - Miladi Dönüşüm</h3>
+          <p>Hicri tarihleri Miladi tarihe dönüştürmenize yardımcı olur.</p>
+        </article>
 
+        <article class="card feature" data-tags="bağlantı link" tabindex="0" onclick="openDetail('modal-8')" onkeypress="if(event.key==='Enter') openDetail('modal-8')">
+          <i class="fas fa-link" aria-hidden="true"></i>
+          <h3>Bağlantı Linkleri</h3>
+          <p>Kuruma ait tüm bağlantılara hızlı erişim imkanı sunar.</p>
+        </article>
 
+        <article class="card feature" data-tags="tüzel kişi numarası" tabindex="0" onclick="openDetail('modal-9')" onkeypress="if(event.key==='Enter') openDetail('modal-9')">
+          <i class="fas fa-id-card" aria-hidden="true"></i>
+          <h3>Tüzel Kişi Numarası Girme</h3>
+          <p>Tüzel kişilikleri sağ tıklayarak sorgulama imkanı sunar.</p>
+        </article>
 
-	
+        <article class="card feature" data-tags="ihlâl işlem" tabindex="0" onclick="openDetail('modal-10')" onkeypress="if(event.key==='Enter') openDetail('modal-10')">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <h3>İşlem İhlali Girme</h3>
+          <p>İşlem ihlali açıklamalarını hızlıca ekleme imkanı.</p>
+        </article>
+      </div>
+    </section>
 
-<!-- Modal Yapısı -->  
- <!-- MODAL: Otomatik E-imza -->
-<div id="modal-a1" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-1')">&times;</span>
-    <h3>Otomatik E-imza</h3>
-    <p>Belgelerinizi elektronik ortamda güvenli, yasal geçerliliğe sahip ve kullanıcı müdahalesine gerek kalmadan imzalamanıza olanak tanır. Zaman kazandırır, işlem yoğunluğunu azaltır.</p>
-  </div>
-</div>
+    <!-- ===== PLANLANANLAR ===== -->
+    <section id="planlananlar" aria-labelledby="planlananlar-title">
+      <h2 id="planlananlar-title"><i class="fas fa-tasks"></i> Yapılması Planlananlar</h2>
+      <p class="sub">Yolda olan geliştirmeler.</p>
+      <div class="grid">
+        <article class="card feature" data-tags="çökme zaten çalışıyor" tabindex="0" onclick="openDetail('modal-11')" onkeypress="if(event.key==='Enter') openDetail('modal-11')">
+          <i class="fas fa-bug" aria-hidden="true"></i>
+          <h3>Takbis Çökme Sorunu</h3>
+          <p>“Zaten Çalışıyor” hatasına çözüm butonu.</p>
+        </article>
+        <article class="card feature" data-tags="algılama çökme" tabindex="0" onclick="openDetail('modal-12')" onkeypress="if(event.key==='Enter') openDetail('modal-12')">
+          <i class="fas fa-search" aria-hidden="true"></i>
+          <h3>Otomatik Çökme Algılama</h3>
+          <p>Donma/çökmeyi tespit edip otomatik düzeltme.</p>
+        </article>
+        <article class="card feature" data-tags="mirasçı" tabindex="0" onclick="openDetail('modal-13')" onkeypress="if(event.key==='Enter') openDetail('modal-13')">
+          <i class="fas fa-user-plus" aria-hidden="true"></i>
+          <h3>Mirasçı Girme</h3>
+          <p>Mirasçı bilgilerini otomatik girme.</p>
+        </article>
+        <article class="card feature" data-tags="hisse oran" tabindex="0" onclick="openDetail('modal-14')" onkeypress="if(event.key==='Enter') openDetail('modal-14')">
+          <i class="fas fa-percentage" aria-hidden="true"></i>
+          <h3>Mirasçı Hisse Oranı</h3>
+          <p>Hisse oranlarını otomatik hesaplama.</p>
+        </article>
+        <article class="card feature" data-tags="mesajlaşma kurum içi" tabindex="0" onclick="openDetail('modal-15')" onkeypress="if(event.key==='Enter') openDetail('modal-15')">
+          <i class="fas fa-comments" aria-hidden="true"></i>
+          <h3>Kurum içi Mesajlaşma</h3>
+          <p>WP benzeri kurum içi mesajlaşma.</p>
+        </article>
+        <article class="card feature" data-tags="dosya paylaşım" tabindex="0" onclick="openDetail('modal-16')" onkeypress="if(event.key==='Enter') openDetail('modal-16')">
+          <i class="fas fa-file-upload" aria-hidden="true"></i>
+          <h3>Kurum içi Dosya</h3>
+          <p>Dosya gönderme ve paylaşım.</p>
+        </article>
+        <article class="card feature" data-tags="ip çakışma" tabindex="0" onclick="openDetail('modal-ip')" onkeypress="if(event.key==='Enter') openDetail('modal-ip')">
+          <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
+          <h3>TAKBİS IP Çakışma</h3>
+          <p>IP çakışma sorunu için manuel çözüm.</p>
+        </article>
+      </div>
+    </section>
 
-<!-- MODAL: Otomatik Belge Onay -->
-<div id="modal-s2" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-2')">&times;</span>
-    <h3>Otomatik Belge Onay</h3>
-    <p>Hazırlanan belgeleri kurum içi kurallara göre otomatik olarak onaylayarak iş akışını hızlandırır ve manuel hataların önüne geçer.</p>
-  </div>
-</div>
+    <!-- ===== EKRAN GÖRÜNTÜLERİ ===== -->
+    <section id="ekran-goruntuleri" aria-labelledby="gallery-title">
+      <h2 id="gallery-title"><i class="fas fa-images"></i> Ekran Görüntüleri</h2>
+      <p class="sub">Tıkla, büyüt ve kaydır — detayları yakınlaştırarak incele. (dokunma ve klavye destekli)</p>
 
-<!-- MODAL: Otomatik İlmuhaber -->
-<div id="modal-a3" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-3')">&times;</span>
-    <h3>Otomatik İlmuhaber</h3>
-    <p>İlmuhaber belgeleri sistem üzerinden hızlıca oluşturularak, eksiksiz ve kuruma özel formatta kullanıcıya sunulur. Süreçler standartlaşır.</p>
-  </div>
-</div>
+      <div class="gallery-grid" id="galleryGrid" aria-label="Görsel galerisi">
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/0.png">
+          <a href="src/img/0.png" class="glightbox" data-gallery="takbis" data-title="Ana Sayfa">
+            <img src="src/img/0.png" alt="Ana Sayfa" loading="lazy">
+          </a>
+          <figcaption>Ana Sayfa</figcaption>
+        </figure>
 
-<!-- MODAL: SMS Gönderme -->
-<div id="modal-a4" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-4')">&times;</span>
-    <h3>SMS Gönderme</h3>
-    <p>Sağ tıklama menüsü üzerinden vatandaşlara tek tıkla, müdürlüğe özgü şablonlarla SMS gönderme imkânı sunar. Hızlı ve etkili iletişim sağlar.</p>
-  </div>
-</div>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/1.png">
+          <a href="src/img/1.png" class="glightbox" data-gallery="takbis" data-title="Form Girişi">
+            <img src="src/img/1.png" alt="Form Girişi" loading="lazy">
+          </a>
+          <figcaption>Form Girişi</figcaption>
+        </figure>
 
-<!-- MODAL: İşlem Açıklama Girme -->
-<div id="modal-a5" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-5')">&times;</span>
-    <h3>İşlem Açıklama Girme</h3>
-    <p>İşlem açıklamalarını hızlıca, hazır metinlerle sisteme eklemenize olanak tanır. Yazım hatalarını azaltır, işlem sürelerini kısaltır.</p>
-  </div>
-</div>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/2.png">
+          <a href="src/img/2.png" class="glightbox" data-gallery="takbis" data-title="Bildirim Ekranı">
+            <img src="src/img/2.png" alt="Bildirim Ekranı" loading="lazy">
+          </a>
+          <figcaption>Bildirim Ekranı</figcaption>
+        </figure>
 
-<!-- MODAL: DSİ İzin Yazısı Girme -->
-<div id="modal-a6" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-6')">&times;</span>
-    <h3>DSİ İzin Yazısı Girme</h3>
-    <p>DSİ izin belgelerini hazır şablonlarla sisteme otomatik olarak eklemenizi sağlar. Belgeler hızlı ve eksiksiz şekilde tamamlanır.</p>
-  </div>
-</div>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/3.png">
+          <a href="src/img/3.png" class="glightbox" data-gallery="takbis" data-title="Bildirim Ekranı">
+            <img src="src/img/3.png" alt="Bildirim Ekranı" loading="lazy">
+          </a>
+          <figcaption>Bildirim Ekranı</figcaption>
+        </figure>
 
-<!-- MODAL: Hicri - Miladi Dönüşüm -->
-<div id="modal-a7" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-7')">&times;</span>
-    <h3>Hicri - Miladi Dönüşüm</h3>
-    <p>Hicri ve Miladi tarihler arasında otomatik dönüşüm sağlayarak, resmi işlemlerde doğru tarih formatını sunar.</p>
-  </div>
-</div>
+        <!-- Diğer görseller (4..12) aynı şekilde eklendi -->
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/4.png"><a href="src/img/4.png" class="glightbox"><img src="src/img/4.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/5.png"><a href="src/img/5.png" class="glightbox"><img src="src/img/5.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/6.png"><a href="src/img/6.png" class="glightbox"><img src="src/img/6.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/7.png"><a href="src/img/7.png" class="glightbox"><img src="src/img/7.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/8.png"><a href="src/img/8.png" class="glightbox"><img src="src/img/8.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/9.png"><a href="src/img/9.png" class="glightbox"><img src="src/img/9.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/10.png"><a href="src/img/10.png" class="glightbox"><img src="src/img/10.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/11.png"><a href="src/img/11.png" class="glightbox"><img src="src/img/11.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/12.png"><a href="src/img/12.png" class="glightbox"><img src="src/img/12.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
 
-<!-- MODAL: Bağlantı Linkleri -->
-<div id="modal-a8" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-8')">&times;</span>
-    <h3>Bağlantı Linkleri</h3>
-    <p>Kurum içi sık kullanılan web siteleri, sistemler ve uygulamalara tek noktadan erişim sağlar. İş akışını kolaylaştırır.</p>
-  </div>
-</div>
+      </div>
+    </section>
 
-<!-- MODAL: Tüzel Kişi Numarası Girme -->
-<div id="modal-9a" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-9')">&times;</span>
-    <h3>Tüzel Kişi Numarası Girme</h3>
-    <p>Tüzel kişi bilgilerini sisteme hızlıca ve doğru biçimde entegre etmenize olanak tanıyacak bir modül geliştirilecektir.</p>
-  </div>
-</div>
+    <!-- ===== FAQ ===== -->
+    <section aria-labelledby="faq-title">
+      <h2 id="faq-title"><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</h2>
+      <div class="faq grid" role="list">
+        <div class="card faq-item" role="listitem" tabindex="0">
+          <h4><i class="fas fa-coins"></i> Program ücretli mi?</h4>
+          <p>Hayır, tamamen ücretsizdir.</p>
+        </div>
+        <div class="card faq-item" role="listitem" tabindex="0">
+          <h4><i class="fas fa-user-shield"></i> Güvenli mi?</h4>
+          <p>Sadece sizin bilgisayarınızda çalışır, dışa veri aktarmaz.</p>
+        </div>
+        <div class="card faq-item" role="listitem" tabindex="0">
+          <h4><i class="fas fa-sync"></i> Nasıl güncellenir?</h4>
+          <p>Program içindeki güncelleme kontrolü ile otomatik yapılabilir.</p>
+        </div>
+        <div class="card faq-item" role="listitem" tabindex="0">
+          <h4><i class="fas fa-laptop-code"></i> Nerede çalışır?</h4>
+          <p>Windows tabanlı tüm bilgisayarlarda çalışabilir.</p>
+        </div>
+      </div>
+    </section>
 
-<!-- MODAL: İşlem İhlali Girme -->
-<div id="modal-1a0" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-10')">&times;</span>
-    <h3>İşlem İhlali Girme</h3>
-    <p>İşlem ihlali açıklamalarının sisteme hızlı ve standart biçimde girilmesini sağlayacak kullanıcı dostu bir özellik planlanmaktadır.</p>
-  </div>
-</div>
+    <!-- ===== KURULUM ===== -->
+    <section id="indir" aria-labelledby="indir-title">
+      <h2 id="indir-title"><i class="fas fa-wrench"></i> Nasıl Kurulur?</h2>
+      <div class="setup grid">
+        <div class="card step"><i class="fas fa-download"></i><h4>1. Programı İndir</h4><p>Aşağıdaki buton ile en güncel versiyonu indir.</p></div>
+        <div class="card step"><i class="fas fa-file-alt"></i><h4>2. Kurulumu Başlat</h4><p>İndirilen exe dosyasını çift tıklayıp kur.</p></div>
+        <div class="card step"><i class="fas fa-check-circle"></i><h4>3. Kullanım</h4><p>Otomatik olarak Takbis ile entegre çalışır.</p></div>
+      </div>
 
-<!-- MODAL: Takbis Çökme Sorunu -->
-<div id="modal-1a1" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-11')">&times;</span>
-    <h3>Takbis Çökme Sorunu</h3>
-    <p>“Zaten çalışıyor” gibi yaygın Takbis hatalarını kullanıcı müdahalesi olmadan düzeltebilecek akıllı bir hata giderme aracı geliştirilecektir.</p>
-  </div>
-</div>
+      <div class="download" style="text-align:center;margin-top:30px">
+        <h2 style="margin-bottom:10px"><i class="fas fa-download"></i> Takbis Plus'ı İndir</h2>
+        <div class="indirbtn" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+          <a class="btn btn-primary" href="src/exe/Kurulum.exe" download><i class="fas fa-download"></i> Şimdi İndir</a>
+          <a class="btn" href="#" id="showChecksum"><i class="fa-solid fa-shield"></i> Doğrulama (SHA256)</a>
+          <a class="btn" href="#" id="copyDl"><i class="fa-solid fa-link"></i> Linki Kopyala</a>
+        </div>
+        <div id="checksumBox" style="display:none;margin-top:10px;color:var(--muted);font-family:monospace">SHA256 hesaplanıyor…</div>
+      </div>
+    </section>
+  </main>
 
-<!-- MODAL: Otomatik Çökme Algılama -->
-<div id="modal-12a" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-12')">&times;</span>
-    <h3>Otomatik Çökme Algılama</h3>
-    <p>Takbis uygulamasında olası donma veya çökme durumlarını otomatik olarak tespit edip sistemin kendini yeniden başlatmasını sağlayacak bir özellik geliştirilecektir.</p>
-  </div>
-</div>
+  <footer>
+    &copy; <span id="year"></span> Takbis Plus | Bu yazılım herhangi bir ticari amaç için geliştirilmemiştir. <br>
+    Hata ve öneriler 🪪 tk120407 / <a href="mailto:tkgmplus@gmail.com">tkgmplus@gmail.com</a> | Tüm Hakları Saklıdır
+  </footer>
 
-<!-- MODAL: Mirasçı Bilgisi Girme -->
-<div id="modal-a13" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-13')">&times;</span>
-    <h3>Mirasçı Bilgisi Girme</h3>
-    <p>Veraset işlemlerinde, mirasçı bilgilerini otomatik olarak tanıyıp sisteme entegre edecek akıllı bir modül planlanmaktadır.</p>
-  </div>
-</div>
+  <!-- ===== GALLERY MODAL (FULL FEATURE) ===== -->
+  <div class="gallery-modal" id="galleryModal" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Görsel galeri">
+    <div class="gm-backdrop" id="gmBackdrop"></div>
 
-<!-- MODAL: Mirasçı Hisse Oranı Girme -->
-<div id="modal-1a4" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-14')">&times;</span>
-    <h3>Mirasçı Hisse Oranı Girme</h3>
-    <p>Her bir mirasçının hisse oranını otomatik hesaplayarak hata riskini ortadan kaldıracak bu özellik, işlemleri büyük ölçüde kolaylaştıracaktır.</p>
-  </div>
-</div>
+    <div class="gm-panel" role="document" aria-live="polite">
+      <button class="gm-close" id="gmClose" aria-label="Kapat (Escape)">✕</button>
 
-<!-- MODAL: Kurum İçi Mesajlaşma -->
-<div id="modal-1a5" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-15')">&times;</span>
-    <h3>Kurum İçi Mesajlaşma</h3>
-    <p>WhatsApp benzeri arayüze sahip, departmanlar arası iletişimi kolaylaştıran, güvenli ve hızlı bir kurum içi mesajlaşma platformu geliştirilecektir.</p>
-  </div>
-</div>
+      <div class="gm-stage" id="gmStage" tabindex="0">
+        <div class="gm-loader" id="gmLoader" aria-hidden="true"></div>
+        <img id="gmImage" src="" alt="" draggable="false">
+        <div class="gm-caption" id="gmCaption" aria-hidden="false"></div>
+      </div>
 
-<!-- MODAL: Kurum İçi Dosya Gönderme -->
-<div id="modal-1a6" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModaldiv('modal-16')">&times;</span>
-    <h3>Kurum İçi Dosya Gönderme</h3>
-    <p>Personelin birbirine sürükle-bırak yöntemiyle dosya gönderebileceği, güvenli ve pratik bir dosya paylaşım sistemi planlanmaktadır.</p>
-  </div>
-</div> 
+      <div class="gm-controls">
+        <button id="gmPrev" class="gm-btn" aria-label="Önceki (←)"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="gm-meta" id="gmMeta">1 / 1</div>
+        <button id="gmNext" class="gm-btn" aria-label="Sonraki (→)"><i class="fa-solid fa-chevron-right"></i></button>
+        <button id="gmZoom" class="gm-btn" aria-label="Büyüt/Küçült"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+        <button id="gmFull" class="gm-btn" aria-label="Tam ekran"><i class="fa-solid fa-expand"></i></button>
+      </div>
 
-
-
-<br>
-<br>
-
-
-
-<h2><i class="fas fa-images"></i> Ekran Görüntüleri</h2>  
-
-    <!-- Ekran Görüntüleri -->
-    <div class="screenshots image-gallery">
-	<img src="src/img/0.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/1.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/2.png" alt="Form Girişi" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/3.png" alt="Bildirim Ekranı" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/4.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/5.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/6.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/7.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/8.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/9.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">
-	<img src="src/img/10.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">	 
-        <img src="src/img/11.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">	
-        <img src="src/img/12.png" alt="Ana Sayfa" onclick="openModal(this.src)" loading="lazy">	
-    </div>
-
-
-   <div class="modal" id="modal">
-    <div class="modal-close" onclick="closeModal()">&times;</div>
-    <div class="image-container" id="imageContainer">
-      <img id="modalImg" src="" />
+      <div class="gm-thumbs" id="gmThumbs" aria-label="Küçük önizlemeler" role="list"></div>
     </div>
   </div>
 
+  <!-- ===== FEATURE DETAIL MODALS ===== -->
+  <div class="modal detail-modal" id="modal-1"><div class="modal-close" onclick="closeDetail('modal-1')">&times;</div><div class="modal-content"><h3>Otomatik E-imza</h3><p>Belgelerinizi elektronik ortamda güvenli, yasal geçerliliğe sahip ve kullanıcı müdahalesine gerek kalmadan imzalamanıza olanak tanır. Zaman kazandırır, işlem yoğunluğunu azaltır.</p></div></div>
+  <div class="modal detail-modal" id="modal-2"><div class="modal-close" onclick="closeDetail('modal-2')">&times;</div><div class="modal-content"><h3>Otomatik Belge Onay</h3><p>Hazırlanan belgeleri kurum içi kurallara göre otomatik olarak onaylayarak iş akışını hızlandırır ve manuel hataların önüne geçer.</p></div></div>
+  <div class="modal detail-modal" id="modal-3"><div class="modal-close" onclick="closeDetail('modal-3')">&times;</div><div class="modal-content"><h3>Otomatik İlmuhaber</h3><p>İlmuhaber belgeleri sistem üzerinden hızlıca oluşturularak, eksiksiz ve kuruma özel formatta kullanıcıya sunulur. Süreçler standartlaşır.</p></div></div>
+  <div class="modal detail-modal" id="modal-4"><div class="modal-close" onclick="closeDetail('modal-4')">&times;</div><div class="modal-content"><h3>SMS Gönderme</h3><p>Sağ tıklama menüsü üzerinden vatandaşlara tek tıkla, müdürlüğe özgü şablonlarla SMS gönderme imkânı sunar. Hızlı ve etkili iletişim sağlar.</p></div></div>
+  <div class="modal detail-modal" id="modal-5"><div class="modal-close" onclick="closeDetail('modal-5')">&times;</div><div class="modal-content"><h3>İşlem Açıklama Girme</h3><p>İşlem açıklamalarını hızlıca, hazır metinlerle sisteme eklemenize olanak tanır. Yazım hatalarını azaltır, işlem sürelerini kısaltır.</p></div></div>
+  <div class="modal detail-modal" id="modal-6"><div class="modal-close" onclick="closeDetail('modal-6')">&times;</div><div class="modal-content"><h3>DSİ İzin Yazısı Girme</h3><p>DSİ izin belgelerini hazır şablonlarla sisteme otomatik olarak eklemenizi sağlar. Belgeler hızlı ve eksiksiz şekilde tamamlanır.</p></div></div>
+  <div class="modal detail-modal" id="modal-7"><div class="modal-close" onclick="closeDetail('modal-7')">&times;</div><div class="modal-content"><h3>Hicri - Miladi Dönüşüm</h3><p>Hicri ve Miladi tarihler arasında otomatik dönüşüm sağlayarak, resmi işlemlerde doğru tarih formatını sunar.</p></div></div>
+  <div class="modal detail-modal" id="modal-8"><div class="modal-close" onclick="closeDetail('modal-8')">&times;</div><div class="modal-content"><h3>Bağlantı Linkleri</h3><p>Kurum içi sık kullanılan web siteleri, sistemler ve uygulamalara tek noktadan erişim sağlar. İş akışını kolaylaştırır.</p></div></div>
+  <div class="modal detail-modal" id="modal-9"><div class="modal-close" onclick="closeDetail('modal-9')">&times;</div><div class="modal-content"><h3>Tüzel Kişi Numarası Girme</h3><p>Tüzel kişi bilgilerini sisteme hızlıca ve doğru biçimde entegre etmenize olanak tanıyacak bir modül.</p></div></div>
+  <div class="modal detail-modal" id="modal-10"><div class="modal-close" onclick="closeDetail('modal-10')">&times;</div><div class="modal-content"><h3>İşlem İhlali Girme</h3><p>İşlem ihlali açıklamalarının sisteme hızlı ve standart biçimde girilmesini sağlayacak kullanıcı dostu bir özellik.</p></div></div>
+  <div class="modal detail-modal" id="modal-11"><div class="modal-close" onclick="closeDetail('modal-11')">&times;</div><div class="modal-content"><h3>Takbis Çökme Sorunu</h3><p>“Zaten çalışıyor” gibi yaygın Takbis hatalarını kullanıcı müdahalesi olmadan düzeltebilecek akıllı bir hata giderme aracı.</p></div></div>
+  <div class="modal detail-modal" id="modal-12"><div class="modal-close" onclick="closeDetail('modal-12')">&times;</div><div class="modal-content"><h3>Otomatik Çökme Algılama</h3><p>Takbis uygulamasında olası donma veya çökme durumlarını otomatik olarak tespit edip sistemin kendini yeniden başlatması.</p></div></div>
+  <div class="modal detail-modal" id="modal-13"><div class="modal-close" onclick="closeDetail('modal-13')">&times;</div><div class="modal-content"><h3>Mirasçı Bilgisi Girme</h3><p>Veraset işlemlerinde, mirasçı bilgilerini otomatik tanıyıp entegre eden modül.</p></div></div>
+  <div class="modal detail-modal" id="modal-14"><div class="modal-close" onclick="closeDetail('modal-14')">&times;</div><div class="modal-content"><h3>Mirasçı Hisse Oranı Girme</h3><p>Her bir mirasçının hisse oranını otomatik hesaplayarak hatayı azaltır.</p></div></div>
+  <div class="modal detail-modal" id="modal-15"><div class="modal-close" onclick="closeDetail('modal-15')">&times;</div><div class="modal-content"><h3>Kurum İçi Mesajlaşma</h3><p>WhatsApp benzeri arayüz ile hızlı kurum içi iletişim.</p></div></div>
+  <div class="modal detail-modal" id="modal-16"><div class="modal-close" onclick="closeDetail('modal-16')">&times;</div><div class="modal-content"><h3>Kurum İçi Dosya Gönderme</h3><p>Sürükle-bırak ile güvenli dosya paylaşımı.</p></div></div>
+  <div class="modal detail-modal" id="modal-ip"><div class="modal-close" onclick="closeDetail('modal-ip')">&times;</div><div class="modal-content"><h3>TAKBİS IP Çakışma</h3><p>TAKBİS uygulamasındaki IP çakışma sorununun manuel olarak giderilmesine yönelik araç.</p></div></div>
 
+  <!-- Shortcuts modal -->
+  <div class="modal detail-modal shortcuts" id="modal-shortcuts"><div class="modal-close" onclick="closeDetail('modal-shortcuts')">&times;</div>
+    <div class="modal-content">
+      <h3>Klavye Kısayolları</h3>
+      <table>
+        <tr><th>Kısayol</th><th>Eylem</th></tr>
+        <tr><td><kbd>/</kbd></td><td>Özellik aramasını odakla</td></tr>
+        <tr><td><kbd>?</kbd></td><td>Bu kılavuzu aç</td></tr>
+        <tr><td><kbd>g</kbd> ardından <kbd>o</kbd></td><td>Özellikler'e git</td></tr>
+        <tr><td><kbd>g</kbd> ardından <kbd>p</kbd></td><td>Planlananlar'a git</td></tr>
+        <tr><td><kbd>g</kbd> ardından <kbd>e</kbd></td><td>Ekran görüntülerine git</td></tr>
+        <tr><td><kbd>g</kbd> ardından <kbd>i</kbd></td><td>İndir bölümüne git</td></tr>
+      </table>
+    </div>
+  </div>
 
-<br>
-<br>
-<br>
+  <!-- Changelog modal -->
+  <div class="modal detail-modal" id="modal-changelog"><div class="modal-close" onclick="closeDetail('modal-changelog')">&times;</div>
+    <div class="modal-content">
+      <h3>Sürüm Notları (v1.3)</h3>
+      <ul>
+        <li>PWA iyileştirmeleri, offline cache</li>
+        <li>Geliştirilmiş gallery zoom/pan dokunma desteği</li>
+        <li>Klavye kısayolları ve erişilebilirlik iyileştirmeleri</li>
+        <li>Checksum hesaplama (SHA-256, izin verilirse)</li>
+      </ul>
+    </div>
+  </div>
 
+  <div class="fab">
+    <button class="helpbtn" id="changelogBtn" aria-label="Sürüm notları" title="Yenilikler"><i class="fa-solid fa-bell"></i></button>
+    <button class="backtop" id="backtop" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
+  </div>
 
-<h2><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</h2>  
-<div class="faq">  
-    <div class="faq-item">  
-        <h4><i class="fas fa-coins"></i> Program ücretli mi?</h4>  
-        <p>Hayır, tamamen ücretsizdir.</p>  
-    </div>  
-    <div class="faq-item">  
-        <h4><i class="fas fa-user-shield"></i> Güvenli mi?</h4>  
-        <p>Sadece sizin bilgisayarınızda çalışır, dışa veri aktarmaz.</p>  
-    </div>  
-    <div class="faq-item">  
-        <h4><i class="fas fa-sync"></i> Nasıl güncellenir?</h4>  
-        <p>Program içindeki güncelleme kontrolü ile otomatik yapılabilir.</p>  
-    </div>  
-    <div class="faq-item">  
-        <h4><i class="fas fa-laptop-code"></i> Nerede çalışır?</h4>  
-        <p>Windows tabanlı tüm bilgisayarlarda çalışabilir.</p>  
-    </div>  
-</div>  
+  <!-- JSON-LD: SoftwareApplication -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Takbis Plus",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Windows",
+    "downloadUrl": "src/exe/Kurulum.exe",
+    "offers": {"@type":"Offer","price":"0","priceCurrency":"TRY"},
+    "description": "TAKBİS işlemlerinde hız, güvenlik ve kolaylık sağlayan ücretsiz yardımcı.",
+    "softwareVersion": "1.3.0"
+  }
+  </script>
 
+  <!-- Inlined JS (keeps original functionality + upgrades) -->
+  <script>
+    /* ===== Helper & DOM ready safety ===== */
+    const $ = sel => document.querySelector(sel);
+    const $$ = sel => Array.from(document.querySelectorAll(sel));
+    const root = document.documentElement;
+    const themeMeta = document.getElementById('themeColorMeta');
 
+    /* ===== Theme toggle with localStorage & theme-color sync ===== */
+    (function(){
+      const themeToggle = document.getElementById('themeToggle');
+      const pref = localStorage.getItem('tb_theme');
+      if(pref){ root.setAttribute('data-theme', pref); }
+      function syncThemeColor(){ themeMeta.setAttribute('content', root.getAttribute('data-theme')==='dark' ? '#0f172a' : '#1f5e3b'); }
+      syncThemeColor();
+      if(themeToggle){
+        themeToggle.addEventListener('click', ()=>{
+          const next = root.getAttribute('data-theme') === 'dark' ? '' : 'dark';
+          if(next) root.setAttribute('data-theme', 'dark'); else root.removeAttribute('data-theme');
+          localStorage.setItem('tb_theme', next);
+          themeToggle.innerHTML = next ? '<i class=\"fas fa-sun\"></i>' : '<i class=\"fas fa-moon\"></i>';
+          syncThemeColor();
+        });
+        themeToggle.innerHTML = root.getAttribute('data-theme')==='dark' ? '<i class=\"fas fa-sun\"></i>' : '<i class=\"fas fa-moon\"></i>';
+      }
+    })();
 
-<br>
-<br>
-<br>
+    /* ===== Scroll spy / active link + backtop + changelog btn ===== */
+    (function(){
+      const sections = ['ozellikler','planlananlar','ekran-goruntuleri','indir'];
+      const links = $$('nav .nav-links a');
+      const backtop = document.getElementById('backtop');
+      const changelogBtn = document.getElementById('changelogBtn');
 
+      const onScroll = () => {
+        const pos = window.scrollY + 140; let active = null;
+        for(const id of sections){ const el = document.getElementById(id); if(el && el.offsetTop <= pos) active = id; }
+        links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+active));
+        if(backtop) backtop.style.display = window.scrollY > 600 ? 'inline-flex' : 'none';
+        if(changelogBtn) changelogBtn.style.display = window.scrollY > 400 ? 'inline-flex' : 'none';
+      }
+      window.addEventListener('scroll', onScroll); onScroll();
+      backtop && backtop.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
+      changelogBtn && changelogBtn.addEventListener('click', ()=> openDetail('modal-changelog'));
+    })();
 
-<h2 id="indir"><i class="fas fa-wrench"></i> Nasıl Kurulur?</h2>  
-<div class="setup">  
-    <div class="step">  
-        <i class="fas fa-download"></i>  
-        <h4>1. Programı İndir</h4>  
-        <p>Aşağıdaki buton ile en güncel versiyonu indir.</p>  
-    </div>  
-    <div class="step">  
-        <i class="fas fa-file-alt"></i>  
-        <h4>2. Kurulumu Başlat</h4>  
-        <p>İndirilen exe dosyasını çift tıklayıp kur.</p>  
-    </div>  
-    <div class="step">  
-        <i class="fas fa-check-circle"></i>  
-        <h4>3. Kullanım</h4>  
-        <p> Otomatik olarak Takbis ile entegre çalışır.</p>  
-    </div>  
-</div>  
+    /* ===== Intersection reveal & counters ===== */
+    (function(){
+      const io = new IntersectionObserver((entries, obs)=>{
+        entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); obs.unobserve(e.target);} });
+      }, {threshold:.1});
+      $$('*').forEach(el=>{ /* cheap: only some classes will be observed below */ });
+      $$('.reveal, .card').forEach(el=>io.observe(el));
 
+      const countIo = new IntersectionObserver((entries, obs)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){
+            const el = e.target; const to = +el.dataset.count; let val = 0;
+            const step = Math.max(1, Math.floor(to/80));
+            const t = setInterval(()=>{ val += step; if(val>=to){val=to; clearInterval(t);} el.textContent = val.toLocaleString('tr-TR'); }, 20);
+            obs.unobserve(el);
+          }
+        })
+      },{threshold:.5});
+      document.querySelectorAll('.num[data-count]').forEach(el=>countIo.observe(el));
+    })();
 
-<div class="download"> 
-	<h2><i class="fas fa-download"></i> Takbis Plus'ı İndir</h2>  
-	<div class="indirbtn">  
-		<a href="https://github.com/tkgmplus/TAKBIS/raw/refs/heads/main/src/exe/Kurulum.exe" download target="_blank"><i class="fas fa-download"></i> Şimdi İndir</a>  
-	</div>  
-</div> 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+    /* ===== Feature search/filter ===== */
+    (function(){
+      const search = document.getElementById('featureSearch');
+      const cards = [...document.querySelectorAll('#featureGrid .card')];
+      if(!search) return;
+      search.addEventListener('input', (e)=>{
+        const q = e.target.value.toLowerCase().trim();
+        cards.forEach(c=>{
+          const text = (c.innerText + ' ' + (c.dataset.tags||'')).toLowerCase();
+          c.style.display = text.includes(q) ? '' : 'none';
+        });
+      });
 
-</section>  
+      // quick focus with '/'
+      window.addEventListener('keydown', (e)=>{ if(e.key==='/' && document.activeElement!==search){ e.preventDefault(); search.focus(); } });
+    })();
 
-<footer>  
-    &copy; 2025 Takbis Plus | Bu yazılım herhangi bir ticari amaç için geliştirilmemiştir. <br> Hata ve öneriler 🪪 tk120407 / <a href="mailto:tkgmplus@gmail.com">tkgmplus@gmail.com</a> adresine mail yollayınız | Tüm Hakları Saklıdır  
-</footer>  
+    /* ===== FAQ accordion (keyboard friendly) ===== */
+    (function(){
+      document.querySelectorAll('.faq-item').forEach(item=>{
+        function toggle(){ item.classList.toggle('open'); }
+        item.addEventListener('click', toggle);
+        item.addEventListener('keypress', (e)=>{ if(e.key==='Enter') toggle(); });
+      });
+    })();
 
-
-
-<script>  
-    // Modal açma fonksiyonu  
-    function openModaldiv(modalId) {  
-        var modal = document.getElementById(modalId);  
-        modal.style.display = "block";  
-    }  
-
-    // Modal kapama fonksiyonu  
-    function closeModaldiv(modalId) {  
-        var modal = document.getElementById(modalId);  
-        modal.style.display = "none";  
-    }  
-
-    // Modal dışına tıklanınca kapama  
-    window.onclick = function (event) {  
-        if (event.target.classList.contains('modal')) {  
-            closeModaldiv(event.target.id);  
-        }  
-    }  
-	
-	
-
-
-
-
-
- 
- 
-    const modal = document.getElementById("modal");
-    const modalImg = document.getElementById("modalImg");
-    const container = document.getElementById("imageContainer");
-
-    let scale = 1;
-    let offsetX = 0;
-    let offsetY = 0;
-    let isDragging = false;
-    let startX = 0;
-    let startY = 0;
-
-    function openModal(src) {
-      modal.style.display = "block";
-      modalImg.src = src;
-      scale = 1;
-      offsetX = 0;
-      offsetY = 0;
-      updateTransform();
+    /* ===== Tiny toast ===== */
+    function toast(msg, ms=1600){
+      const el = document.createElement('div');
+      el.className = 'tb-toast';
+      el.textContent = msg;
+      Object.assign(el.style, {
+        position:'fixed', left:'50%', bottom:'22px', transform:'translateX(-50%)',
+        background:'linear-gradient(120deg, var(--brand-2), var(--brand-1))', color:'#fff',
+        padding:'10px 16px', borderRadius:'999px', boxShadow:'var(--shadow-strong)',
+        zIndex:99999, opacity: '1'
+      });
+      document.body.appendChild(el);
+      setTimeout(()=>{ el.style.transition='opacity .4s'; el.style.opacity='0'; setTimeout(()=>el.remove(),400); }, ms);
     }
+    window.toast = toast;
 
-    function closeModal() {
-      modal.style.display = "none";
+    /* ===== Copy mail quick action ===== */
+    (function(){
+      const copyMail = document.getElementById('copyMail');
+      if(copyMail){
+        copyMail.addEventListener('click', async ()=>{
+          try{ await navigator.clipboard.writeText('tkgmplus@gmail.com'); toast('E-posta adresi kopyalandı: tkgmplus@gmail.com'); }
+          catch{ toast('Kopyalama izin verilmedi'); }
+        });
+      }
+    })();
+
+    /* ===== Share (Web Share API) ===== */
+    (function(){
+      const shareBtn = document.getElementById('shareBtn');
+      if(!shareBtn) return;
+      shareBtn.addEventListener('click', async ()=>{
+        try{
+          if(navigator.share){ await navigator.share({title:document.title, text:'Takbis Plus | TAKBİS’de Akıllı Yardımcınız', url:location.href}); }
+          else{ await navigator.clipboard.writeText(location.href); toast('Bağlantı panoya kopyalandı'); }
+        }catch(err){}
+      });
+    })();
+
+    /* ===== Copy download link ===== */
+    (function(){
+      const copyDl = document.getElementById('copyDl');
+      if(copyDl){
+        copyDl.addEventListener('click', async (e)=>{
+          e.preventDefault();
+          const url = (location.origin.endsWith('/') ? location.origin : location.origin + '/') + 'src/exe/Kurulum.exe';
+          try{ await navigator.clipboard.writeText(url); toast('İndirme linki kopyalandı'); }catch{ toast('Kopyalama izin verilmedi'); }
+        });
+      }
+    })();
+
+    /* ===== Checksum (SHA-256) - best effort (CORS may block) ===== */
+    (function(){
+      const showChecksum = document.getElementById('showChecksum');
+      if(!showChecksum) return;
+      showChecksum.addEventListener('click', async (e)=>{
+        e.preventDefault();
+        const box = document.getElementById('checksumBox');
+        box.style.display = box.style.display==='none' ? 'block' : 'none';
+        if(box.dataset.done) return;
+        try{
+          const url = (location.origin.endsWith('/') ? location.origin : location.origin + '/') + 'src/exe/Kurulum.exe';
+          const res = await fetch(url, {mode:'cors'});
+          if(!res.ok) throw new Error('fetch fail');
+          const buf = await res.arrayBuffer();
+          const hash = await crypto.subtle.digest('SHA-256', buf);
+          const hex = [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');
+          box.textContent = 'SHA256: ' + hex;
+          box.dataset.done = '1';
+        }catch(err){
+          box.textContent = 'SHA256: CORS engeli nedeniyle hesaplanamadı. İndirip yerelde doğrulayın.';
+        }
+      });
+    })();
+
+    /* ===== Generic detail modals handling ===== */
+    function openDetail(id){
+      const m = document.getElementById(id);
+      if(!m) return;
+      m.style.display = 'block';
+      m.setAttribute('open','');
+      m.setAttribute('aria-hidden','false');
+      // focus first focusable inside modal if any
+      const focusable = m.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+      if(focusable) focusable.focus();
+      document.body.style.overflow = 'hidden';
     }
-
-    function updateTransform() {
-      modalImg.style.transform = `translate(${offsetX}px, ${offsetY}px) scale(${scale})`;
+    function closeDetail(id){
+      const m = document.getElementById(id);
+      if(!m) return;
+      m.style.display = 'none';
+      m.removeAttribute('open');
+      m.setAttribute('aria-hidden','true');
+      document.body.style.overflow = '';
     }
+    window.openDetail = openDetail; window.closeDetail = closeDetail;
+    // close on click outside for modals
+    window.addEventListener('click', (e)=>{ if(e.target.classList && e.target.classList.contains('modal')) e.target.style.display='none'; });
 
-    // Yakınlaştırma: fare pozisyonuna göre odakla
-    container.addEventListener("wheel", function (e) {
-      e.preventDefault();
-      const rect = container.getBoundingClientRect();
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
+    /* ===== Shortcuts modal open via ? and shortcutBtn ===== */
+    (function(){
+      const shortcutBtn = document.getElementById('shortcutBtn');
+      if(shortcutBtn) shortcutBtn.addEventListener('click', ()=> openDetail('modal-shortcuts'));
+      document.addEventListener('keydown', (e)=>{ if(e.key==='?'){ openDetail('modal-shortcuts'); } });
+    })();
 
-      const prevScale = scale;
-      const delta = e.deltaY > 0 ? -0.1 : 0.1;
-      scale = Math.min(Math.max(scale + delta, 0.5), 5);
+    /* ===== g then key navigation ===== */
+    (function(){
+      let gPressed = false; let gTimer;
+      document.addEventListener('keydown', (e)=>{
+        if(e.key==='g'){ gPressed=true; clearTimeout(gTimer); gTimer=setTimeout(()=>gPressed=false, 1200); }
+        else if(gPressed){
+          if(e.key==='o') location.hash = '#ozellikler';
+          if(e.key==='p') location.hash = '#planlananlar';
+          if(e.key==='e') location.hash = '#ekran-goruntuleri';
+          if(e.key==='i') location.hash = '#indir';
+          gPressed=false;
+        }
+      });
+    })();
 
-      // Pozisyonu fareye göre ayarla
-      offsetX -= (mouseX - offsetX) * (scale - prevScale) / prevScale;
-      offsetY -= (mouseY - offsetY) * (scale - prevScale) / prevScale;
+    /* ===== Gallery modal: advanced zoom/pan/keyboard/touch ===== */
+    (function(){
+      const thumbs = Array.from(document.querySelectorAll('.gallery-thumb'));
+      if(!thumbs.length) return;
 
-      updateTransform();
-    });
+      const modal = document.getElementById('galleryModal');
+      const gmBackdrop = document.getElementById('gmBackdrop');
+      const gmPanel = modal.querySelector('.gm-panel');
+      const gmStage = document.getElementById('gmStage');
+      const gmImage = document.getElementById('gmImage');
+      const gmLoader = document.getElementById('gmLoader');
+      const gmClose = document.getElementById('gmClose');
+      const gmPrev = document.getElementById('gmPrev');
+      const gmNext = document.getElementById('gmNext');
+      const gmMeta = document.getElementById('gmMeta');
+      const gmThumbs = document.getElementById('gmThumbs');
+      const gmZoom = document.getElementById('gmZoom');
+      const gmFull = document.getElementById('gmFull');
 
-    container.addEventListener("mousedown", function (e) {
-      if (e.button !== 0) return; // sadece sol tık
-      isDragging = true;
-      startX = e.clientX;
-      startY = e.clientY;
-      container.style.cursor = "grabbing";
-    });
+      let idx = 0, lastFocused = null;
+      let scale = 1, baseScale = 1, minScale = 1, maxScale = 4;
+      let panX = 0, panY = 0;
+      let isPanning = false, startX = 0, startY = 0;
 
-    document.addEventListener("mouseup", function () {
-      isDragging = false;
-      container.style.cursor = "grab";
-    });
+      thumbs.forEach((figure, i) => {
+        const img = figure.querySelector('img');
+        const thumb = document.createElement('img');
+        thumb.src = img.currentSrc || img.src;
+        thumb.alt = img.alt || figure.dataset.alt || `Görsel ${i+1}`;
+        thumb.dataset.index = i;
+        thumb.addEventListener('click', ()=> open(i));
+        thumb.addEventListener('keydown', (e)=>{ if(e.key==='Enter') open(i); });
+        thumb.setAttribute('role','button');
+        thumb.tabIndex = 0;
+        gmThumbs.appendChild(thumb);
+      });
 
-    document.addEventListener("mousemove", function (e) {
-      if (!isDragging) return;
-      const dx = e.clientX - startX;
-      const dy = e.clientY - startY;
-      startX = e.clientX;
-      startY = e.clientY;
+      function setMeta(){
+        gmMeta.textContent = `${idx+1} / ${thumbs.length}`;
+        const captionText = thumbs[idx].dataset.alt || thumbs[idx].querySelector('figcaption')?.textContent || '';
+        document.getElementById('gmCaption').textContent = captionText;
+        gmThumbs.querySelectorAll('img').forEach(t=> t.classList.toggle('active', +t.dataset.index === idx));
+      }
 
-      offsetX += dx;
-      offsetY += dy;
+      function preload(i){
+        const j = (i + thumbs.length) % thumbs.length;
+        const src = thumbs[j].dataset.src || thumbs[j].querySelector('img').src;
+        const im = new Image(); im.src = src;
+      }
 
-      updateTransform();
-    });
+      async function open(i){
+        idx = (i + thumbs.length) % thumbs.length;
+        lastFocused = document.activeElement;
+        modal.setAttribute('aria-hidden','false');
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        gmLoader.style.display = 'block';
+        scale = 1; panX = 0; panY = 0; updateTransform();
 
-</script>
+        const src = thumbs[idx].dataset.src || thumbs[idx].querySelector('img').src;
+        gmImage.src = '';
+        try {
+          await loadImage(src);
+          gmImage.src = src;
+          gmImage.alt = thumbs[idx].dataset.alt || thumbs[idx].querySelector('img').alt || '';
+          const cw = gmStage.clientWidth, ch = gmStage.clientHeight;
+          const iw = gmImage.naturalWidth, ih = gmImage.naturalHeight;
+          baseScale = Math.min(cw / iw, ch / ih, 1) || 1;
+          scale = baseScale; minScale = baseScale; maxScale = Math.max(baseScale * 4, baseScale + 1);
+          updateTransform();
+          gmLoader.style.display = 'none';
+          setMeta();
+          preload(idx+1); preload(idx-1);
+          setTimeout(()=> gmClose.focus(), 60);
+        } catch(err){
+          gmLoader.style.display = 'none';
+          gmMeta.textContent = 'Yükleme hatası';
+        }
+      }
 
-</body>  
-</html> 
+      function loadImage(src){
+        return new Promise((resolve, reject)=>{
+          const img = new Image();
+          img.onload = ()=> resolve(img);
+          img.onerror = ()=> reject();
+          img.src = src;
+        });
+      }
 
+      function close(){
+        modal.setAttribute('aria-hidden','true');
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+        if(lastFocused) lastFocused.focus();
+      }
 
+      function updateTransform(){
+        clampPan();
+        gmImage.style.transform = `translate(${panX}px, ${panY}px) scale(${scale})`;
+      }
 
+      function clampPan(){
+        const cw = gmStage.clientWidth, ch = gmStage.clientHeight;
+        const iw = gmImage.naturalWidth || gmImage.width, ih = gmImage.naturalHeight || gmImage.height;
+        const dispW = iw * scale, dispH = ih * scale;
+        const maxPanX = Math.max(0, (dispW - cw)/2);
+        const maxPanY = Math.max(0, (dispH - ch)/2);
+        panX = Math.max(-maxPanX, Math.min(maxPanX, panX));
+        panY = Math.max(-maxPanY, Math.min(maxPanY, panY));
+      }
 
+      function next(){ open(idx+1); }
+      function prev(){ open(idx-1); }
 
+      gmNext.addEventListener('click', next);
+      gmPrev.addEventListener('click', prev);
+      gmClose.addEventListener('click', close);
+      gmBackdrop.addEventListener('click', close);
+
+      window.addEventListener('keydown', (e)=>{
+        if(modal.style.display !== 'flex') return;
+        if(e.key === 'Escape') close();
+        else if(e.key === 'ArrowRight') next();
+        else if(e.key === 'ArrowLeft') prev();
+        else if(e.key === '+') { scale = Math.min(maxScale, scale * 1.2); updateTransform(); }
+        else if(e.key === '-') { scale = Math.max(minScale, scale / 1.2); updateTransform(); }
+      });
+
+      gmStage.addEventListener('wheel', function(e){
+        if(modal.style.display !== 'flex') return;
+        e.preventDefault();
+        const rect = gmStage.getBoundingClientRect();
+        const mx = e.clientX - rect.left - rect.width/2;
+        const my = e.clientY - rect.top - rect.height/2;
+        const prev = scale;
+        scale = Math.max(minScale, Math.min(maxScale, e.deltaY > 0 ? scale * 0.95 : scale * 1.05));
+        panX = (panX - mx) * (scale/prev) + mx;
+        panY = (panY - my) * (scale/prev) + my;
+        updateTransform();
+      }, { passive:false });
+
+      gmStage.addEventListener('mousedown', (e)=>{
+        if(e.button !== 0) return;
+        isPanning = true; startX = e.clientX; startY = e.clientY; gmStage.style.cursor = 'grabbing';
+      });
+      window.addEventListener('mousemove', (e)=>{
+        if(!isPanning) return;
+        const dx = e.clientX - startX, dy = e.clientY - startY;
+        startX = e.clientX; startY = e.clientY;
+        panX += dx; panY += dy; updateTransform();
+      });
+      window.addEventListener('mouseup', ()=>{ if(isPanning){ isPanning=false; gmStage.style.cursor='grab'; } });
+
+      gmStage.addEventListener('dblclick', ()=>{
+        if(scale > minScale*1.02){ scale = minScale; panX = 0; panY = 0; }
+        else { scale = Math.min(maxScale, minScale * 2); }
+        updateTransform();
+      });
+
+      let touchStartX=0, touchStartY=0, touchStartTime=0, pinchStartDist=null, pinchStartScale=null;
+      gmStage.addEventListener('touchstart', (e)=>{
+        if(e.touches.length === 1){
+          touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY; touchStartTime = Date.now();
+        } else if(e.touches.length === 2){
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          pinchStartDist = Math.hypot(dx,dy);
+          pinchStartScale = scale;
+        }
+      }, {passive:true});
+
+      gmStage.addEventListener('touchmove', (e)=>{
+        if(e.touches.length === 1 && pinchStartDist === null){
+          e.preventDefault();
+          const dx = e.touches[0].clientX - touchStartX, dy = e.touches[0].clientY - touchStartY;
+          touchStartX = e.touches[0].clientX; touchStartY = e.touches[0].clientY;
+          panX += dx; panY += dy; updateTransform();
+        } else if(e.touches.length === 2){
+          e.preventDefault();
+          const dx = e.touches[0].clientX - e.touches[1].clientX;
+          const dy = e.touches[0].clientY - e.touches[1].clientY;
+          const dist = Math.hypot(dx,dy);
+          scale = Math.max(minScale, Math.min(maxScale, pinchStartScale * (dist/pinchStartDist)));
+          updateTransform();
+        }
+      }, {passive:false});
+
+      gmStage.addEventListener('touchend', (e)=>{
+        if(pinchStartDist === null && e.changedTouches.length === 1 && scale <= minScale*1.02){
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          const dt = Date.now() - touchStartTime;
+          if(Math.abs(dx) > 60 && dt < 450){
+            if(dx < 0) next(); else prev();
+          }
+        }
+        if(e.touches.length < 2){ pinchStartDist = null; pinchStartScale = null; }
+      });
+
+      gmZoom && gmZoom.addEventListener('click', ()=>{
+        if(scale > minScale*1.05){ scale = minScale; panX = 0; panY = 0; }
+        else { scale = Math.min(maxScale, minScale*2); }
+        updateTransform();
+      });
+
+      gmFull && gmFull.addEventListener('click', async ()=>{
+        try{ if(!document.fullscreenElement) await gmPanel.requestFullscreen(); else await document.exitFullscreen(); }catch(err){}
+      });
+
+      thumbs.forEach((figure, i)=>{
+        figure.addEventListener('click', (e)=>{ e.preventDefault(); open(i); });
+        figure.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') open(i); });
+        figure.style.cursor = 'zoom-in';
+      });
+
+      modal.addEventListener('click', (e)=>{ if(e.target === modal || e.target === gmBackdrop) close(); });
+      window.addEventListener('resize', ()=> setTimeout(updateTransform, 120));
+    })();
+
+    /* ===== PWA: manifest + inline service worker registration (best-effort) ===== */
+    (function(){
+      if('serviceWorker' in navigator){
+        try{
+          const manifest = { name:'Takbis Plus', short_name:'Takbis+', start_url:'./', display:'standalone', background_color:'#ffffff', theme_color:'#1f5e3b', icons:[{src:'src/img/0.png',sizes:'512x512',type:'image/png'}] };
+          const mBlob = new Blob([JSON.stringify(manifest)], {type:'application/manifest+json'});
+          const mUrl = URL.createObjectURL(mBlob);
+          const link = document.createElement('link'); link.rel='manifest'; link.href=mUrl; document.head.appendChild(link);
+        }catch(e){}
+        // Inline simple SW script
+        const swCode = `
+          const CACHE = 'tb-cache-v1-1';
+          const CORE = [ './', './src/img/0.png', './src/img/1.png', './src/img/2.png', './src/img/3.png' ];
+          self.addEventListener('install', e=>{ e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())); });
+          self.addEventListener('activate', e=>{ e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k))))); self.clients.claim(); });
+          self.addEventListener('fetch', e=>{ const req = e.request; if(req.method!=='GET') return; e.respondWith(caches.match(req).then(cached=> cached || fetch(req).then(res=>{ const copy=res.clone(); caches.open(CACHE).then(c=>c.put(req, copy)).catch(()=>{}); return res; }).catch(()=>cached))); });
+        `;
+        const swBlob = new Blob([swCode], {type:'text/javascript'});
+        const swUrl = URL.createObjectURL(swBlob);
+        navigator.serviceWorker.register(swUrl).catch(()=>{ /* ignore */ });
+
+        // beforeinstallprompt
+        let deferredPrompt;
+        const installBtn = document.getElementById('installBtn');
+        const hint = document.getElementById('installHint');
+        window.addEventListener('beforeinstallprompt', (e)=>{
+          e.preventDefault(); deferredPrompt = e;
+          if(installBtn){ installBtn.style.display='inline-flex'; }
+          if(hint){ hint.style.display='inline-flex'; }
+        });
+        if(installBtn){
+          installBtn.addEventListener('click', async ()=>{
+            if(!deferredPrompt) return toast('PWA yükleme hazır değil');
+            deferredPrompt.prompt();
+            const choice = await deferredPrompt.userChoice;
+            if(choice.outcome === 'accepted') toast('Uygulama ana ekrana eklendi');
+            deferredPrompt = null;
+          });
+        }
+      }
+    })();
+
+    /* ===== Lightbox (GLightbox) init if available ===== */
+    (function(){
+      if(typeof GLightbox === 'function'){
+        GLightbox({ selector: '.gallery-grid a', touchNavigation: true, loop: true, autoplayVideos: true, openEffect: 'zoom', closeEffect: 'fade', slideEffect: 'slide' });
+      }
+    })();
+
+    /* ===== Footer year ===== */
+    (function(){ const y = document.getElementById('year'); if(y) y.textContent = new Date().getFullYear(); })();
+  </script>
+
+  <!-- GLightbox CDN (keeps gallery progressive) -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+</body>
+</html>

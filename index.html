@@ -349,14 +349,19 @@
     </section>
 
 
+
     <!-- ===== ÖZELLİKLER ===== -->
     <section id="ozellikler" aria-labelledby="ozellikler-title">
       <h2 id="ozellikler-title"><i class="fas fa-star"></i> Özellikler</h2>
-      <p class="sub">profesyonelce </p>
+      <p class="sub">
+        Takbis Plus, Tapu ve Kadastro memurlarının iş akışlarını hızlandırmak ve verimliliği maksimize etmek için geliştirilmiş akıllı bir çözümdür.  
+        Tekrarlayan işlemleri otomatikleştirir, hataları minimize eder ve günlük görevlerinizi hızlı ve güvenli şekilde tamamlamanızı sağlar.
+      </p>
 
       <div class="searchbar" role="search" aria-label="Özellik arama">
         <input id="featureSearch" type="search" placeholder="Özellik ara (örn. imza, SMS, mirasçı...)" aria-label="Özellik ara">
       </div>
+
 
       <div class="grid" id="featureGrid" aria-live="polite">
         <!-- Orijinal içerik + modal tetikleyicileri -->
@@ -425,7 +430,10 @@
     <!-- ===== PLANLANANLAR ===== -->
     <section id="planlananlar" aria-labelledby="planlananlar-title">
       <h2 id="planlananlar-title"><i class="fas fa-tasks"></i> Yapılması Planlananlar</h2>
-      <p class="sub">Yolda olan geliştirmeler.</p>
+        <p class="sub">
+          Takbis Plus ekibi, programı sürekli geliştirmek ve memurların iş akışını daha da hızlandırmak için yeni özellikler üzerinde çalışıyor.  
+          Yolda olan güncellemeler, güvenlik iyileştirmeleri ve kullanıcı dostu eklemelerle deneyiminizi güçlendirin.
+        </p>
       <div class="grid">
         <article class="card feature" data-tags="çökme zaten çalışıyor" tabindex="0" onclick="openDetail('modal-11')" onkeypress="if(event.key==='Enter') openDetail('modal-11')">
           <i class="fas fa-bug" aria-hidden="true"></i>
@@ -464,11 +472,14 @@
         </article>
       </div>
     </section>
-
     <!-- ===== EKRAN GÖRÜNTÜLERİ ===== -->
     <section id="ekran-goruntuleri" aria-labelledby="gallery-title">
       <h2 id="gallery-title"><i class="fas fa-images"></i> Ekran Görüntüleri</h2>
-      <p class="sub">Tıkla, büyüt ve kaydır — detayları yakınlaştırarak incele. (dokunma ve klavye destekli)</p>
+      <p class="sub">
+        Takbis Plus deneyimini yakından keşfedin.  
+        Görselleri tıklayarak büyütün, kaydırarak gezin ve detayları yakınlaştırın.  
+        Tam dokunmatik ve klavye desteği ile rahat bir inceleme deneyimi sunar.
+      </p>
 
       <div class="gallery-grid" id="galleryGrid" aria-label="Görsel galerisi">
         <figure class="gallery-thumb" tabindex="0" data-src="src/img/0.png">
@@ -823,6 +834,8 @@
       });
     })();
 
+
+
     /* ===== Generic detail modals handling ===== */
     function openDetail(id){
       const m = document.getElementById(id);
@@ -835,17 +848,28 @@
       if(focusable) focusable.focus();
       document.body.style.overflow = 'hidden';
     }
+
     function closeDetail(id){
       const m = document.getElementById(id);
       if(!m) return;
       m.style.display = 'none';
       m.removeAttribute('open');
       m.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''; // overflow'ı geri aç
     }
-    window.openDetail = openDetail; window.closeDetail = closeDetail;
+
+    // global erişim
+    window.openDetail = openDetail;
+    window.closeDetail = closeDetail;
+
     // close on click outside for modals
-    window.addEventListener('click', (e)=>{ if(e.target.classList && e.target.classList.contains('modal')) e.target.style.display='none'; });
+    window.addEventListener('click', (e) => { 
+      if (e.target.classList && e.target.classList.contains('modal')) {
+        // modal id'si varsa closeDetail kullan
+        const id = e.target.id;
+        closeDetail(id);
+      }
+    });
 
     /* ===== Gallery modal: advanced zoom/pan/keyboard/touch ===== */
     (function(){
@@ -1148,6 +1172,42 @@
       updateCount();
     });
   });
+
+
+
+
+
+    // Tam ekran butonu
+    gmFull && gmFull.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) {
+          await gmPanel.requestFullscreen();
+        } else {
+          await document.exitFullscreen();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    // Kapat butonu
+    gmClose && gmClose.addEventListener('click', async () => {
+      try {
+        // Eğer tam ekran modundaysa çık
+        if (document.fullscreenElement) {
+          await document.exitFullscreen();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+      // Modalı kapat
+      galleryModal.setAttribute('aria-hidden', 'true');
+    });
+
+
+
+
+
   </script>
 
 

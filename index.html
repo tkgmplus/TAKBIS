@@ -218,6 +218,22 @@
     }
 
     @media (max-width: 900px){ .hero-card{grid-template-columns:1fr} .nav-inner{padding:10px} .brand{font-size:1rem} .nav-links{display:none} .actions{gap:6px} .hero h1{font-size:1.6rem} }
+
+
+
+
+    .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Logo ile metin arası boşluk */
+}
+
+.brand-logo {
+    height: 40px; /* Logonun yüksekliği */
+    width: auto;
+}
+
+    
   </style>
 </head>
 <body>
@@ -227,7 +243,8 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" role="navigation" aria-label="Ana gezinti">
     <div class="nav-inner container">
-      <div class="brand" aria-label="Takbis Plus"><i class="fas fa-map"></i> TAKBİS Plus</div>
+      <div class="brand" aria-label="Takbis Plus"> <img src="src/img/logo.png" alt="Takbis Plus Logo" class="brand-logo"> TAKBİS Plus </div>
+
       <div class="nav-links" role="navigation" aria-label="Sayfa bölümleri">
         <a href="#ozellikler">Özellikler</a>
         <a href="#planlananlar">Planlananlar</a>
@@ -268,7 +285,7 @@
       <div class="hero-visual" aria-hidden="true">
         <picture>
           <source srcset="src/img/0.webp 1x, src/img/0@2x.webp 2x" type="image/webp">
-          <img class="mini-shot" src="src/img/0.png" alt="Takbis Plus ekran görüntüsü" loading="lazy">
+          <img class="mini-shot" src="src/img/1.png" alt="Takbis Plus ekran görüntüsü" loading="lazy">
         </picture>
         <div class="badge">Gerçek ekran görüntüsü</div>
       </div>
@@ -1082,4 +1099,5 @@
 
 </body>
 </html>
+
 

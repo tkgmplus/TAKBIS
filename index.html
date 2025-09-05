@@ -153,12 +153,22 @@
     .hero-visual{position:relative}
     .hero-visual {
         position: relative;
-        width: 100%;         /* Yatay genişlik */
-        max-width: 600px;    /* İstediğiniz max genişlik */
-        margin: auto;        /* Ortalamak için */
+        width: 100%;
+        max-width: 600px;
+        margin: auto;
+        display: block;       /* Önemli: flex/grid gibi kapsayıcıları bozmayacak */
+        height: auto;         /* Resim yüksekliğine göre otomatik */
     }
 
-    .mini-shot { width: 100%; border-radius: 12px; box-shadow: var(--shadow-strong); }
+
+    .mini-shot {
+    width: 100%;
+    height: auto;        /* Önemli */
+    border-radius: 12px;
+    box-shadow: var(--shadow-strong);
+    display: block;      /* inline img yerine block */
+}
+
 
 
     /* ===== Sections ===== */
@@ -267,48 +277,77 @@
     </div>
   </nav>
 
+
+
+
   <!-- ===== HERO ===== -->
   <header class="hero" role="banner">
     <div class="hero-card reveal container">
       <div>
-        <span class="chip"><i class="fa-solid fa-shield-halved"></i> V.25.16 • Güvenli & Hızlı</span>
-        <h1>TAKBİS'de Akıllı Yardımcınız <span style="white-space:nowrap">— Takbis Plus</span></h1>
-        <p>Takbis çöktüğünde kurtarır, işlemlerinizi otomatikleştirir ve size ciddi zaman kazandırır. Ücretsiz indirip hemen kullanmaya başlayın.</p>
+        <span class="chip"><i class="fa-solid fa-shield-halved"></i> V.25.16 • Güvenli, Hızlı & Kararlı</span>
+        <h1>Akıllı TAKBİS Asistanı <span style="white-space:nowrap"> ~ Takbis Plus</span></h1>
+        <p>Takbis Plus, Tapu ve Kadastro Müdürlüğü’nde kullanılan TAKBİS ile <strong>tam uyumlu</strong> çalışan, gelişmiş özellikler sunan güçlü bir asistan programdır. İş süreçlerini hızlandırır, tekrarlayan görevleri otomatikleştirir ve verimliliğinizi en üst düzeye çıkarır.</p>
+
+        
         <div class="hero-cta" role="group" aria-label="Ana eylemler">
           <a class="btn btn-primary" href="src/exe/Kurulum.exe" download>
-            <i class="fa-solid fa-download"></i> Şimdi İndir
+            <i class="fa-solid fa-download"></i> Hemen İndir
           </a>
-          <a class="btn" href="#ozellikler"><i class="fa-solid fa-wand-magic-sparkles"></i> Özellikleri Gör</a>
+          <a class="btn" href="#ozellikler"><i class="fa-solid fa-wand-magic-sparkles"></i> Özellikleri İncele</a>
           <button class="btn" id="copyMail"><i class="fa-solid fa-envelope"></i> İletişim Mailini Kopyala</button>
-          <button class="btn" id="shortcutBtn"><i class="fa-solid fa-keyboard"></i> Kısayollar</button>
         </div>
+        
         <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-          <span class="pill"><i class="fa-solid fa-lock"></i> Yerel çalışır, veri göndermez</span>
-          <span class="pill"><i class="fa-solid fa-laptop"></i> Windows uyumlu</span>
-          <span class="pill"><i class="fa-solid fa-bolt"></i> Otomasyonlar ile hız</span>
-          <span class="pill" id="installHint" style="display:none"><i class="fa-solid fa-mobile-screen"></i> PWA: Ana ekrana ekle</span>
+          <span class="pill"><i class="fa-solid fa-lock"></i> Yerel Çalışma • Veri Güvende</span>
+          <span class="pill"><i class="fa-solid fa-laptop"></i> Windows Uyumlu</span>
+          <span class="pill"><i class="fa-solid fa-bolt"></i> İş Akışını Hızlandırır</span>
+          <span class="pill" id="installHint" style="display:none"><i class="fa-solid fa-mobile-screen"></i> PWA: Ana Ekrana Ekle</span>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <picture>
-          <source srcset="src/img/0.webp 1x, src/img/0@2x.webp 2x" type="image/webp">
-          <img class="mini-shot" src="src/img/1.png" alt="Takbis Plus ekran görüntüsü" loading="lazy">
-        </picture>
-        <div class="badge">Gerçek ekran görüntüsü</div>
+      
+      <div class="hero-visual" style="position: relative; width: 100%; max-width: 600px; margin: 20px auto; display: block;">
+        <img class="mini-shot" src="src/img/1.png" alt="Takbis Plus ekran görüntüsü" 
+            style="width:100%; display:block; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.2);">
+        <div class="badge" style="position:absolute; bottom:10px; right:10px; background:#111; color:#fff; opacity:0.85; border-radius:10px; padding:5px 10px; font-size:0.8rem;">Gerçek Ekran Görüntüsü</div>
       </div>
     </div>
   </header>
 
+
+
+
+
+
+
   <main id="icerik" class="container" role="main">
+
     <!-- ===== STATS ===== -->
     <section aria-label="istatistikler">
-      <div class="stats reveal" style="margin-top:6px">
-        <div class="stat" role="group" aria-label="Kullanıcı sayısı"><div class="num" data-count="1250">0</div><div class="lbl">+ Kullanıcı</div></div>
-        <div class="stat" role="group" aria-label="Memnuniyet oranı"><div class="num" data-count="97">0</div><div class="lbl">% Memnuniyet</div></div>
-        <div class="stat" role="group" aria-label="Kurumsal modül sayısı"><div class="num" data-count="43">0</div><div class="lbl">Kurumsal modül</div></div>
-        <div class="stat" role="group" aria-label="Saniye başına kazanılan işlem"><div class="num" data-count="12">0</div><div class="lbl">Saniyede kazanılan işlem</div></div>
+      <div class="stats reveal" style="margin-top:20px; gap:24px; text-align:center; display:flex; justify-content:center; flex-wrap:wrap;">
+
+        <div class="stat" role="group" aria-label="Günlük kazanç" style="flex:1; min-width:120px;">
+          <div class="num" data-count="45" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">Ort. Günlük Zaman Kazancı<br><small>(dk)</small></div>
+        </div>
+
+        <div class="stat" role="group" aria-label="Haftalık kazanç" style="flex:1; min-width:120px;">
+          <div class="num" data-count="3.45" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">Ort. Haftalık Zaman Kazancı<br><small>(saat)</small></div>
+        </div>
+
+        <div class="stat" role="group" aria-label="Yıllık kazanç" style="flex:1; min-width:120px;">
+          <div class="num" data-count="24.5" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">Ort. Yıllık Zaman Kazancı<br><small>(iş günü)</small></div>
+        </div>
+
+        <div class="stat" role="group" aria-label="Memnuniyet oranı" style="flex:1; min-width:120px;">
+          <div class="num" data-count="94" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">% Memnuniyet</div>
+        </div>
+
       </div>
     </section>
+
 
     <!-- ===== ÖZELLİKLER ===== -->
     <section id="ozellikler" aria-labelledby="ozellikler-title">
@@ -808,28 +847,6 @@
     // close on click outside for modals
     window.addEventListener('click', (e)=>{ if(e.target.classList && e.target.classList.contains('modal')) e.target.style.display='none'; });
 
-    /* ===== Shortcuts modal open via ? and shortcutBtn ===== */
-    (function(){
-      const shortcutBtn = document.getElementById('shortcutBtn');
-      if(shortcutBtn) shortcutBtn.addEventListener('click', ()=> openDetail('modal-shortcuts'));
-      document.addEventListener('keydown', (e)=>{ if(e.key==='?'){ openDetail('modal-shortcuts'); } });
-    })();
-
-    /* ===== g then key navigation ===== */
-    (function(){
-      let gPressed = false; let gTimer;
-      document.addEventListener('keydown', (e)=>{
-        if(e.key==='g'){ gPressed=true; clearTimeout(gTimer); gTimer=setTimeout(()=>gPressed=false, 1200); }
-        else if(gPressed){
-          if(e.key==='o') location.hash = '#ozellikler';
-          if(e.key==='p') location.hash = '#planlananlar';
-          if(e.key==='e') location.hash = '#ekran-goruntuleri';
-          if(e.key==='i') location.hash = '#indir';
-          gPressed=false;
-        }
-      });
-    })();
-
     /* ===== Gallery modal: advanced zoom/pan/keyboard/touch ===== */
     (function(){
       const thumbs = Array.from(document.querySelectorAll('.gallery-thumb'));
@@ -1103,6 +1120,36 @@
 
   <!-- GLightbox CDN (keeps gallery progressive) -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".num");
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-count");
+      let count = 0;
+      const speed = target / 100;
+
+      const updateCount = () => {
+        if(count < target){
+          count += speed;
+          if(target % 1 !== 0){
+            counter.textContent = (Math.floor(count*100)/100); // 2 basamaklı ondalık
+          } else {
+            counter.textContent = Math.floor(count);
+          }
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = target;
+        }
+      };
+
+      updateCount();
+    });
+  });
+  </script>
+
 
 </body>
 </html>

@@ -151,8 +151,15 @@
     .btn-primary{background:linear-gradient(120deg, var(--brand-1), var(--brand-2));border:none;color:#fff}
     .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-strong)}
     .hero-visual{position:relative}
-    .hero-visual .badge{position:absolute;right:18px;top:18px;background:#111;color:#fff;opacity:.85;border-radius:10px;padding:8px 10px;font-size:.8rem}
-    .mini-shot{width:100%;border-radius:12px;box-shadow:var(--shadow-strong)}
+    .hero-visual {
+        position: relative;
+        width: 100%;         /* Yatay genişlik */
+        max-width: 600px;    /* İstediğiniz max genişlik */
+        margin: auto;        /* Ortalamak için */
+    }
+
+    .mini-shot { width: 100%; border-radius: 12px; box-shadow: var(--shadow-strong); }
+
 
     /* ===== Sections ===== */
     main section{max-width:var(--max-width);margin:48px auto;padding:0 20px}
@@ -243,7 +250,7 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" role="navigation" aria-label="Ana gezinti">
     <div class="nav-inner container">
-      <div class="brand" aria-label="Takbis Plus"> <img src="src/img/logo.png" alt="Takbis Plus Logo" class="brand-logo"> TAKBİS Plus </div>
+      <div class="brand" aria-label="Takbis Plus"> <img src="src/img/logo.png" alt="logo" class="brand-logo"> TAKBİS Plus </div>
 
       <div class="nav-links" role="navigation" aria-label="Sayfa bölümleri">
         <a href="#ozellikler">Özellikler</a>
@@ -1099,5 +1106,6 @@
 
 </body>
 </html>
+
 
 

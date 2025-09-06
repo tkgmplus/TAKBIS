@@ -175,7 +175,7 @@
   box-shadow: 0 8px 24px rgba(0,0,0,0);
   transform: translateX(80px);
   opacity: 0;
-  animation: slideInRight 2.5s ease forwards;
+  animation: slideInRight 2s ease forwards;
   transition: transform 0.6s ease, box-shadow 0.6s ease;
 }
 
@@ -402,6 +402,67 @@
 
 
 
+/* Profesyonel arama + 21 özellik tasarımı */
+.searchbar-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+  padding: 0.5rem;
+}
+
+.searchbar-wrapper input[type="search"] {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 2px solid #cbd5e1; /* soft gri-mavi */
+  border-radius: 0.75rem;
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #ffffff;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.searchbar-wrapper input[type="search"]:focus {
+  border-color: #53f99d; /* canlı mavi vurgu */
+  box-shadow: 0 0 10px rgb(57, 172, 108, 0.3);
+}
+
+.feature-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #53f99d, #39ac6c); /* mavi tonları */
+  border-radius: 2rem;
+  padding: 0.55rem 1.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.feature-count i {
+  font-size: 1.25rem;
+  color: #fff;
+  animation: pulseIcon 2s infinite;
+}
+
+/* Hover efekti */
+.feature-count:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+}
+
+/* İkon puls animasyonu */
+@keyframes pulseIcon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+
 
   </style>
 </head>
@@ -450,7 +511,7 @@
         </div>
         
         <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-          <span class="pill"><i class="fa-solid fa-lock"></i> Yerel Çalışma • Veri Güvende</span>
+          <span class="pill"><i class="fa-solid fa-lock"></i> Yerel Çalışma • Güvenli</span>
           <span class="pill"><i class="fa-solid fa-laptop"></i> Windows Uyumlu</span>
           <span class="pill"><i class="fa-solid fa-bolt"></i> İş Akışını Hızlandırır</span>
           <span class="pill" id="installHint" style="display:none"><i class="fa-solid fa-mobile-screen"></i> PWA: Ana Ekrana Ekle</span>
@@ -511,13 +572,121 @@
         Tekrarlayan işlemleri otomatikleştirir, hataları minimize eder ve günlük görevlerinizi hızlı ve güvenli şekilde tamamlamanızı sağlar.
       </p>
 
-      <div class="searchbar" role="search" aria-label="Özellik arama">
-        <input id="featureSearch" type="search" placeholder="Özellik ara (örn. imza, SMS, mirasçı...)" aria-label="Özellik ara">
+
+
+                  
+      <div class="searchbar-wrapper" role="search" aria-label="Özellik arama ve toplam özellik">
+        <input id="featureSearch" type="search" 
+              placeholder="Özellik ara (örn. imza, SMS, mirasçı...)" 
+              aria-label="Özellik ara">
+        <span class="feature-count" aria-label="Toplam 21 özellik">
+          <i class="fas fa-layer-group"></i> <strong>21 Özellik</strong>
+        </span>
       </div>
+
+
+
+      
+
 
 
       <div class="grid" id="featureGrid" aria-live="polite">
         <!-- Orijinal içerik + modal tetikleyicileri -->
+
+
+
+
+        <!-- 1. PC Bilgi Gösterimi -->
+        <article class="card feature" data-tags="ip kullanıcı adı bilgisayar" tabindex="0"
+                onclick="openDetail('modal-ipinfo')" onkeypress="if(event.key==='Enter') openDetail('modal-ipinfo')">
+          <i class="fas fa-network-wired" aria-hidden="true"></i>
+          <h3>PC Bilgi Gösterimi</h3>
+          <p>IP adresi, oturum kullanıcı adı ve bilgisayar adını ana ekranda görüntüler.</p>
+        </article>
+
+        <!-- 2. Hızlı Erişim Butonları -->
+        <article class="card feature" data-tags="ebys mail portal youtube hızlı erişim" tabindex="0"
+                onclick="openDetail('modal-quicklinks')" onkeypress="if(event.key==='Enter') openDetail('modal-quicklinks')">
+          <i class="fas fa-external-link-alt" aria-hidden="true"></i>
+          <h3>Hızlı Erişim Butonları</h3>
+          <p>EBYS, e-posta, portal ve YouTube için sol alt köşede tek tıkla erişim.</p>
+        </article>
+
+        <!-- 3. E-Kütüğe Taşıma Botu -->
+        <article class="card feature" data-tags="e-kütük otomasyon bot" tabindex="0"
+                onclick="openDetail('modal-ekutuk')" onkeypress="if(event.key==='Enter') openDetail('modal-ekutuk')">
+          <i class="fas fa-archive" aria-hidden="true"></i>
+          <h3>E-Kütüğe Taşıma Botu</h3>
+          <p>Belgeleri otomatik olarak e-kütüğe aktararak işlem hızını artırır.</p>
+        </article>
+
+        <!-- 4. Hata Yok Botu -->
+        <article class="card feature" data-tags="hata yok kontrol" tabindex="0"
+                onclick="openDetail('modal-hatayok')" onkeypress="if(event.key==='Enter') openDetail('modal-hatayok')">
+          <i class="fas fa-check-double" aria-hidden="true"></i>
+          <h3>Hata Yok Botu</h3>
+          <p>Toplulaştırma ve benzeri işlemler tamamlandığında, süreci kapatabilmek için hata kontrolünü gerçekleştirir.</p>
+
+        </article>
+
+        <!-- 5. Word Resmi Senet Stil Sabitleme -->
+        <article class="card feature" data-tags="word resmi senet stil" tabindex="0"
+                onclick="openDetail('modal-wordstyle')" onkeypress="if(event.key==='Enter') openDetail('modal-wordstyle')">
+          <i class="fas fa-file-word" aria-hidden="true"></i>
+          <h3>Resmi Senet Stil Sabitleme</h3>
+          <p>Word belgelerinde resmi senet biçimini otomatik sabitler, düzen birliği sağlar.</p>
+        </article>
+
+        <!-- 6. Açılış NumLock Ayarı -->
+        <article class="card feature" data-tags="numlock klavye açılış" tabindex="0"
+                onclick="openDetail('modal-numlock')" onkeypress="if(event.key==='Enter') openDetail('modal-numlock')">
+          <i class="fas fa-keyboard" aria-hidden="true"></i>
+          <h3>Açılışta NumLock Ayarı</h3>
+          <p>Bilgisayar açılışında NumLock tuşunu otomatik etkinleştirir.</p>
+        </article>
+
+        <!-- 7. Q-F Klavye Geçişi -->
+        <article class="card feature" data-tags="klavye q f" tabindex="0"
+                onclick="openDetail('modal-keyboardlayout')" onkeypress="if(event.key==='Enter') openDetail('modal-keyboardlayout')">
+          <i class="fas fa-language" aria-hidden="true"></i>
+          <h3>Q-F Klavye Geçişi</h3>
+          <p>Kullanıcı tercihlerine göre Q veya F klavye düzenine tek tıkla geçiş sağlar.</p>
+        </article>
+
+        <!-- 8. İşlem İçi Tek E-Kütüğe Taşıma -->
+        <article class="card feature" data-tags="işlem içi e-kütük" tabindex="0"
+                onclick="openDetail('modal-inline-ekutuk')" onkeypress="if(event.key==='Enter') openDetail('modal-inline-ekutuk')">
+          <i class="fas fa-folder-plus" aria-hidden="true"></i>
+          <h3>İşlem İçi E-Kütüğe Taşıma</h3>
+          <p>KM taşınmazlarındaki işlemleri tek tıkla e-kütüğe taşır.</p>
+        </article>
+
+        <!-- 9. Kanuni İpotek Belge Girişi -->
+        <article class="card feature" data-tags="kanuni ipotek belge dsi" tabindex="0"
+                onclick="openDetail('modal-ipotek')" onkeypress="if(event.key==='Enter') openDetail('modal-ipotek')">
+          <i class="fas fa-file-signature" aria-hidden="true"></i>
+          <h3>Kanuni İpotek Belge Girişi</h3>
+          <p> kanuni ipoteklerde tek tıkla belge girişi.</p>
+        </article>
+
+        <!-- 10. Müdür İçin İşlem İhlali -->
+        <article class="card feature" data-tags="işlem ihlali müdür" tabindex="0"
+                onclick="openDetail('modal-manager-violation')" onkeypress="if(event.key==='Enter') openDetail('modal-manager-violation')">
+          <i class="fas fa-user-shield" aria-hidden="true"></i>
+          <h3>Müdür İçin İşlem İhlali</h3>
+          <p>Müdür İşlem ihlali açıklamalarını hızlıca ekleme imkanı.</p>
+        </article>
+
+
+
+
+       <article class="card feature" data-tags="çökme zaten çalışıyor" tabindex="0" onclick="openDetail('modal-11')" onkeypress="if(event.key==='Enter') openDetail('modal-11')">
+          <i class="fas fa-bug" aria-hidden="true"></i>
+          <h3>Takbis Çökme Sorunu</h3>
+          <p>“Zaten Çalışıyor” hatasına çözüm butonu.</p>
+        </article>
+        
+
         <article class="card feature" data-tags="imza e-imza elektronik" tabindex="0" onclick="openDetail('modal-1')" onkeypress="if(event.key==='Enter') openDetail('modal-1')">
           <i class="fas fa-pen-fancy" aria-hidden="true"></i>
           <h3>Otomatik E-imza</h3>
@@ -574,8 +743,8 @@
 
         <article class="card feature" data-tags="ihlâl işlem" tabindex="0" onclick="openDetail('modal-10')" onkeypress="if(event.key==='Enter') openDetail('modal-10')">
           <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
-          <h3>İşlem İhlali Girme</h3>
-          <p>İşlem ihlali açıklamalarını hızlıca ekleme imkanı.</p>
+          <h3>Personel İşlem İhlali Girme</h3>
+          <p> Personel İşlem ihlali açıklamalarını hızlıca ekleme imkanı.</p>
         </article>
       </div>
     </section>
@@ -588,11 +757,7 @@
           Yolda olan güncellemeler, güvenlik iyileştirmeleri ve kullanıcı dostu eklemelerle deneyiminizi güçlendirin.
         </p>
       <div class="grid">
-        <article class="card feature" data-tags="çökme zaten çalışıyor" tabindex="0" onclick="openDetail('modal-11')" onkeypress="if(event.key==='Enter') openDetail('modal-11')">
-          <i class="fas fa-bug" aria-hidden="true"></i>
-          <h3>Takbis Çökme Sorunu</h3>
-          <p>“Zaten Çalışıyor” hatasına çözüm butonu.</p>
-        </article>
+       
         <article class="card feature" data-tags="algılama çökme" tabindex="0" onclick="openDetail('modal-12')" onkeypress="if(event.key==='Enter') openDetail('modal-12')">
           <i class="fas fa-search" aria-hidden="true"></i>
           <h3>Otomatik Çökme Algılama</h3>
@@ -623,6 +788,36 @@
           <h3>TAKBİS IP Çakışma</h3>
           <p>IP çakışma sorunu için manuel çözüm.</p>
         </article>
+
+
+
+        <!-- 11. Fazla Mesai Evrak Paneli -->
+        <article class="card feature" data-tags="fazla mesai paneli" tabindex="0"
+                onclick="openDetail('modal-overtime')" onkeypress="if(event.key==='Enter') openDetail('modal-overtime')">
+          <i class="fas fa-clock" aria-hidden="true"></i>
+          <h3>Fazla Mesai Evrak Paneli</h3>
+          <p>Fazla mesai evraklarını oluşturup yönetebileceğiniz özel bir panel sunar.</p>
+        </article>
+
+        <!-- 12. Kurum İçi PC Kontrolü -->
+        <article class="card feature" data-tags="kurum içi pc kontrol" tabindex="0"
+                onclick="openDetail('modal-pccontrol')" onkeypress="if(event.key==='Enter') openDetail('modal-pccontrol')">
+          <i class="fas fa-desktop" aria-hidden="true"></i>
+          <h3>Kurum İçi PC Kontrolü</h3>
+          <p>Ağdaki kurum bilgisayarlarını yardım isteme imkanı sağlar.</p>
+        </article>
+
+        <!-- 13. Tek Tıkla Çift Taraflı Yazdırma -->
+        <article class="card feature" data-tags="yazıcı çift taraflı tek tık" tabindex="0"
+                onclick="openDetail('modal-printer')" onkeypress="if(event.key==='Enter') openDetail('modal-printer')">
+          <i class="fas fa-print" aria-hidden="true"></i>
+          <h3>Tek Tıkla Çift Taraflı Yazdırma</h3>
+          <p>Belgeleri tek tıkla çift taraflı yazdırarma ayarı sunar</p>
+        </article>
+
+
+
+
       </div>
     </section>
     <!-- ===== EKRAN GÖRÜNTÜLERİ ===== -->
@@ -643,36 +838,36 @@
         </figure>
 
         <figure class="gallery-thumb" tabindex="0" data-src="src/img/1.png">
-          <a href="src/img/1.png" class="glightbox" data-gallery="takbis" data-title="Form Girişi">
-            <img src="src/img/1.png" alt="Form Girişi" loading="lazy">
+          <a href="src/img/1.png" class="glightbox" data-gallery="takbis" data-title="Menü Ekranı">
+            <img src="src/img/1.png" alt="Menü Ekranı" loading="lazy">
           </a>
-          <figcaption>Form Girişi</figcaption>
+          <figcaption>Menü Ekranı</figcaption>
         </figure>
 
         <figure class="gallery-thumb" tabindex="0" data-src="src/img/2.png">
-          <a href="src/img/2.png" class="glightbox" data-gallery="takbis" data-title="Bildirim Ekranı">
-            <img src="src/img/2.png" alt="Bildirim Ekranı" loading="lazy">
+          <a href="src/img/2.png" class="glightbox" data-gallery="takbis" data-title="İlmuhaber Ekranı">
+            <img src="src/img/2.png" alt="İlmuhaber Ekranı" loading="lazy">
           </a>
-          <figcaption>Bildirim Ekranı</figcaption>
+          <figcaption>İlmuhaber Ekranı</figcaption>
         </figure>
 
         <figure class="gallery-thumb" tabindex="0" data-src="src/img/3.png">
-          <a href="src/img/3.png" class="glightbox" data-gallery="takbis" data-title="Bildirim Ekranı">
-            <img src="src/img/3.png" alt="Bildirim Ekranı" loading="lazy">
+          <a href="src/img/3.png" class="glightbox" data-gallery="takbis" data-title="Hicri -> Miladi">
+            <img src="src/img/3.png" alt="Hicri -> Miladi" loading="lazy">
           </a>
-          <figcaption>Bildirim Ekranı</figcaption>
+          <figcaption>Hicri -> Miladi</figcaption>
         </figure>
 
         <!-- Diğer görseller (4..12) aynı şekilde eklendi -->
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/4.png"><a href="src/img/4.png" class="glightbox"><img src="src/img/4.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/5.png"><a href="src/img/5.png" class="glightbox"><img src="src/img/5.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/6.png"><a href="src/img/6.png" class="glightbox"><img src="src/img/6.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/7.png"><a href="src/img/7.png" class="glightbox"><img src="src/img/7.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/8.png"><a href="src/img/8.png" class="glightbox"><img src="src/img/8.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/9.png"><a href="src/img/9.png" class="glightbox"><img src="src/img/9.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/10.png"><a href="src/img/10.png" class="glightbox"><img src="src/img/10.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/11.png"><a href="src/img/11.png" class="glightbox"><img src="src/img/11.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
-        <figure class="gallery-thumb" tabindex="0" data-src="src/img/12.png"><a href="src/img/12.png" class="glightbox"><img src="src/img/12.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Ana Sayfa</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/4.png"><a href="src/img/4.png" class="glightbox"><img src="src/img/4.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Bağlantılar Ekranı</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/5.png"><a href="src/img/5.png" class="glightbox"><img src="src/img/5.png" alt="Ana Sayfa" loading="lazy"></a><figcaption> Akıllı Botlar </figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/6.png"><a href="src/img/6.png" class="glightbox"><img src="src/img/6.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>E-İmza Botu</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/7.png"><a href="src/img/7.png" class="glightbox"><img src="src/img/7.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Belge Onay Botu</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/8.png"><a href="src/img/8.png" class="glightbox"><img src="src/img/8.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>İşlem Açıklama</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/9.png"><a href="src/img/9.png" class="glightbox"><img src="src/img/9.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Dsi Belge Girişi</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/10.png"><a href="src/img/10.png" class="glightbox"><img src="src/img/10.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Sms'ler</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/11.png"><a href="src/img/11.png" class="glightbox"><img src="src/img/11.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>İşlem İhlali</figcaption></figure>
+        <figure class="gallery-thumb" tabindex="0" data-src="src/img/12.png"><a href="src/img/12.png" class="glightbox"><img src="src/img/12.png" alt="Ana Sayfa" loading="lazy"></a><figcaption>Tüzel Kişi</figcaption></figure>
 
       </div>
     </section>
@@ -701,7 +896,7 @@
 
           <div class="card faq-item" role="listitem" tabindex="0">
             <h4><i class="fas fa-laptop-code"></i> Hangi sistemlerde çalışır?</h4>
-            <p>Windows 8, 10 ve 11 dahil olmak üzere tüm Windows tabanlı bilgisayarlarda sorunsuz çalışır.</p>
+            <p>Windows 7, 8, 10 ve 11 dahil olmak üzere tüm Windows tabanlı bilgisayarlarda sorunsuz çalışır.</p>
           </div>
 
           <div class="card faq-item" role="listitem" tabindex="0">
@@ -711,7 +906,10 @@
 
           <div class="card faq-item" role="listitem" tabindex="0">
             <h4><i class="fas fa-question"></i> Destek alabilir miyim?</h4>
-            <p>Takbis Plus ile birlikte hızlı ve anlaşılır bir rehber sunulur. Ayrıca destek talepleriniz için e-posta ve sık sorulan sorular bölümü her zaman hazırdır.</p>
+            <p>
+              Takbis Plus, sade bir arayüz ve temel açıklamalarla gelir. 
+              Sorularınız veya önerileriniz için e-posta yoluyla bize ulaşabilirsiniz.
+            </p>
           </div>
 
         </div>
@@ -747,7 +945,7 @@
 
   <footer>
     &copy; <span id="year"></span> Takbis Plus | Bu yazılım herhangi bir ticari amaç için geliştirilmemiştir. <br>
-    Hata ve öneriler için; 🪪 tk120407 veya <a href="mailto:tkgmplus@gmail.com">tkgmplus@gmail.com</a> | Tüm Hakları Saklıdır
+    Hata ve öneriler için; 🪪 tk120407 veya <a href="mailto:tkgmplus@gmail.com">tkgmplus@gmail.com</a>  mail adresi ile iletişime geçebilirsiniz. | Tüm Hakları Saklıdır
   </footer>
 
   <!-- ===== GALLERY MODAL (FULL FEATURE) ===== -->
@@ -821,23 +1019,23 @@
 
   <div class="modal-content dev-note">
       <h3>📢 Geliştiriciden Mesaj</h3>
-
-     <p>
-        Günlük operasyonlarımızı hızlandırmak için hazırladığımız küçük bir otomasyon denemesi,
-        zamanla kapsamlı bir araca dönüştü. Çözüm odaklı yaklaşımımızı paylaşarak 
-        benzer ihtiyaçları olan herkesin aynı kolaylıktan yararlanabileceğini gördük.
+      
+      <p>
+        Günlük iş akışımızı hızlandırmak için başlattığımız küçük bir otomasyon denemesi, 
+        zamanla kapsamlı ve güvenilir bir araca dönüştü. Çözüm odaklı yaklaşımımızı 
+        paylaşarak benzer ihtiyaçları olan herkesin bu kolaylıktan yararlanabileceğini gördük.
       </p>
 
       <p>
-        Bu nedenle Takbis Plus’ı sürekli geliştiriyor, verimliliği artıran, 
-        hata payını azaltan ve kullanıcı deneyimini iyileştiren yeni özellikler 
-        eklemeye odaklanıyoruz. Topluluk geri bildirimleri, yol haritamızı 
-        belirleyen en önemli unsur.
+        Bu nedenle Takbis Plus’ı sürekli geliştiriyor; verimliliği artıran, 
+        hata payını en aza indiren ve kullanıcı deneyimini iyileştiren 
+        yeni özelliklere odaklanıyoruz. Topluluktan gelen her geri bildirim, 
+        yol haritamızı şekillendiren değerli bir kılavuz oluyor.
       </p>
 
       <p>
-        Bilgi ve deneyim paylaştıkça değer kazanır; projenin açık kalması ve 
-        herkesin katkıda bulunabilmesi de bu anlayışın bir parçası.
+        Bilgi ve deneyim paylaşıldıkça çoğalır. Projenin açık kalması ve 
+        katkıya açık bir yapıda ilerlemesi de bu anlayışın doğal bir yansımasıdır.
       </p>
 
       <p class="sign">
@@ -1396,6 +1594,24 @@
     });
 
 
+
+
+
+  function openDetail(modalId) {
+    const modal = document.getElementById(modalId);
+    const content = modal.querySelector('.modal-content');
+
+    // Modal görünür yapılır
+    modal.style.display = 'block';
+
+    // 🔽 Scroll en üste ayarlanır
+    if (content) content.scrollTop = 0;
+  }
+
+  function closeDetail(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) modal.style.display = 'none';
+  }
 
 
 

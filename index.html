@@ -150,9 +150,78 @@
     .btn{display:inline-flex;align-items:center;gap:8px;border-radius:12px;padding:12px 16px;font-weight:700;border:1px solid #e5e7eb;background:#fff;color:#111;cursor:pointer;box-shadow:var(--shadow);text-decoration:none}
     .btn-primary{background:linear-gradient(120deg, var(--brand-1), var(--brand-2));border:none;color:#fff}
     .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow-strong)}
-    .hero-visual{position:relative}
-    .hero-visual .badge{position:absolute;right:18px;top:18px;background:#111;color:#fff;opacity:.85;border-radius:10px;padding:8px 10px;font-size:.8rem}
-    .mini-shot{width:100%;border-radius:12px;box-shadow:var(--shadow-strong)}
+
+
+
+
+
+
+
+
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  display: block;
+  background: transparent;
+}
+
+/* Görsel */
+.mini-shot {
+  width: 100%;
+  display: block;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0);
+  transform: translateX(80px);
+  opacity: 0;
+  animation: slideInRight 2.5s ease forwards;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.mini-shot:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 32px rgba(0,0,0,0);
+}
+
+
+/* Badge */
+.hero-visual .badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: linear-gradient(135deg, #222, #444);
+  color: #fff;
+  border-radius: 10px;
+  padding: 4px 8px;
+  font-size: 0.65rem;
+  font-family: 'Segoe UI', sans-serif;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateZ(30px) scale(0.8);
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.hero-visual:hover .badge {
+  opacity: 1;
+  transform: translateZ(30px) scale(1);
+}
+
+/* Animasyon */
+@keyframes slideInRight {
+  0%   { transform: translateX(80px) rotateY(10deg) scale(0.95); opacity: 0; }
+  100% { transform: translateX(0) rotateY(6deg) scale(1); opacity: 1; }
+}
+
+
+
+
+
+
+
+
+
 
     /* ===== Sections ===== */
     main section{max-width:var(--max-width);margin:48px auto;padding:0 20px}
@@ -218,6 +287,106 @@
     }
 
     @media (max-width: 900px){ .hero-card{grid-template-columns:1fr} .nav-inner{padding:10px} .brand{font-size:1rem} .nav-links{display:none} .actions{gap:6px} .hero h1{font-size:1.6rem} }
+
+
+
+
+    .brand {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Logo ile metin arası boşluk */
+}
+
+.brand-logo {
+    height: 40px; /* Logonun yüksekliği */
+    width: auto;
+}
+
+    
+
+
+
+
+
+.dev-note {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 1.8rem 2rem;
+  border-radius: 14px;
+  background: #fafafa;
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", "Roboto", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.dev-note h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #222;
+}
+
+.dev-note p {
+  font-size: 1rem;
+  margin-bottom: 0.9rem;
+}
+
+.dev-note .sign {
+  font-style: italic;
+  color: #555;
+  margin-bottom: 1.2rem;
+}
+
+.dev-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.dev-actions .btn {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn.primary {
+  background: #0078d7;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background: #005fa3;
+  transform: translateY(-2px);
+}
+
+.btn.secondary {
+  background: #f1f1f1;
+  color: #333;
+}
+
+.btn.secondary:hover {
+  background: #e2e2e2;
+  transform: translateY(-2px);
+}
+
+.btn.download {
+  background: #2bb673;
+  color: #fff;
+}
+
+.btn.download:hover {
+  background: #219d60;
+  transform: translateY(-2px);
+}
+
+
+
+
+
   </style>
 </head>
 <body>
@@ -227,7 +396,8 @@
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" role="navigation" aria-label="Ana gezinti">
     <div class="nav-inner container">
-      <div class="brand" aria-label="Takbis Plus"><i class="fas fa-map"></i> TAKBİS Plus</div>
+      <div class="brand" aria-label="Takbis Plus"> <img src="src/img/logo.png" alt="logo" class="brand-logo"> TAKBİS Plus </div>
+
       <div class="nav-links" role="navigation" aria-label="Sayfa bölümleri">
         <a href="#ozellikler">Özellikler</a>
         <a href="#planlananlar">Planlananlar</a>
@@ -243,57 +413,92 @@
     </div>
   </nav>
 
+
+
+
   <!-- ===== HERO ===== -->
   <header class="hero" role="banner">
     <div class="hero-card reveal container">
       <div>
-        <span class="chip"><i class="fa-solid fa-shield-halved"></i> v1.3 • Güvenli & Hızlı</span>
-        <h1>TAKBİS'de Akıllı Yardımcınız <span style="white-space:nowrap">— Takbis Plus</span></h1>
-        <p>Takbis çöktüğünde kurtarır, işlemlerinizi otomatikleştirir ve size ciddi zaman kazandırır. Ücretsiz indirip hemen kullanmaya başlayın.</p>
+        <span class="chip"><i class="fa-solid fa-shield-halved"></i> V.25.16 • Güvenli, Hızlı & Kararlı</span>
+        <h1>Akıllı TAKBİS Asistanı <span style="white-space:nowrap"> </span></h1>
+        <p>Takbis Plus, Tapu ve Kadastro Müdürlüğü’nde kullanılan TAKBİS ile <strong>tam uyumlu</strong> çalışan, gelişmiş özellikler sunan güçlü bir asistan programdır. İş süreçlerini hızlandırır, tekrarlayan görevleri otomatikleştirir ve verimliliğinizi en üst düzeye çıkarır.</p>
+
+        
         <div class="hero-cta" role="group" aria-label="Ana eylemler">
           <a class="btn btn-primary" href="src/exe/Kurulum.exe" download>
-            <i class="fa-solid fa-download"></i> Şimdi İndir
+            <i class="fa-solid fa-download"></i> Hemen İndir
           </a>
-          <a class="btn" href="#ozellikler"><i class="fa-solid fa-wand-magic-sparkles"></i> Özellikleri Gör</a>
+          <a class="btn" href="#ozellikler"><i class="fa-solid fa-wand-magic-sparkles"></i> Özellikleri İncele</a>
           <button class="btn" id="copyMail"><i class="fa-solid fa-envelope"></i> İletişim Mailini Kopyala</button>
-          <button class="btn" id="shortcutBtn"><i class="fa-solid fa-keyboard"></i> Kısayollar</button>
         </div>
+        
         <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap">
-          <span class="pill"><i class="fa-solid fa-lock"></i> Yerel çalışır, veri göndermez</span>
-          <span class="pill"><i class="fa-solid fa-laptop"></i> Windows uyumlu</span>
-          <span class="pill"><i class="fa-solid fa-bolt"></i> Otomasyonlar ile hız</span>
-          <span class="pill" id="installHint" style="display:none"><i class="fa-solid fa-mobile-screen"></i> PWA: Ana ekrana ekle</span>
+          <span class="pill"><i class="fa-solid fa-lock"></i> Yerel Çalışma • Veri Güvende</span>
+          <span class="pill"><i class="fa-solid fa-laptop"></i> Windows Uyumlu</span>
+          <span class="pill"><i class="fa-solid fa-bolt"></i> İş Akışını Hızlandırır</span>
+          <span class="pill" id="installHint" style="display:none"><i class="fa-solid fa-mobile-screen"></i> PWA: Ana Ekrana Ekle</span>
         </div>
       </div>
-      <div class="hero-visual" aria-hidden="true">
-        <picture>
-          <source srcset="src/img/0.webp 1x, src/img/0@2x.webp 2x" type="image/webp">
-          <img class="mini-shot" src="src/img/0.png" alt="Takbis Plus ekran görüntüsü" loading="lazy">
-        </picture>
-        <div class="badge">Gerçek ekran görüntüsü</div>
+      
+      
+      <div class="hero-visual">
+        <img class="mini-shot" src="src/img/Ana.png" alt="Takbis Plus ekran görüntüsü">
+        <div class="badge">Version: V.25.16</div>
       </div>
+      
     </div>
   </header>
 
+
+
+
+
+
+
   <main id="icerik" class="container" role="main">
+
     <!-- ===== STATS ===== -->
     <section aria-label="istatistikler">
-      <div class="stats reveal" style="margin-top:6px">
-        <div class="stat" role="group" aria-label="Kullanıcı sayısı"><div class="num" data-count="1250">0</div><div class="lbl">+ Kullanıcı</div></div>
-        <div class="stat" role="group" aria-label="Memnuniyet oranı"><div class="num" data-count="97">0</div><div class="lbl">% Memnuniyet</div></div>
-        <div class="stat" role="group" aria-label="Kurumsal modül sayısı"><div class="num" data-count="43">0</div><div class="lbl">Kurumsal modül</div></div>
-        <div class="stat" role="group" aria-label="Saniye başına kazanılan işlem"><div class="num" data-count="12">0</div><div class="lbl">Saniyede kazanılan işlem</div></div>
+      <div class="stats reveal" style="margin-top:20px; gap:24px; text-align:center; display:flex; justify-content:center; flex-wrap:wrap;">
+
+        <div class="stat" role="group" aria-label="Günlük kazanç" style="flex:1; min-width:120px;">
+          <div class="num" data-count="45" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">Ort. Günlük Zaman Kazancı<br><small>(dk)</small></div>
+        </div>
+
+        <div class="stat" role="group" aria-label="Haftalık kazanç" style="flex:1; min-width:120px;">
+          <div class="num" data-count="3.45" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">Ort. Haftalık Zaman Kazancı<br><small>(saat)</small></div>
+        </div>
+
+        <div class="stat" role="group" aria-label="Yıllık kazanç" style="flex:1; min-width:120px;">
+          <div class="num" data-count="24.5" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">Ort. Yıllık Zaman Kazancı<br><small>(iş günü)</small></div>
+        </div>
+
+        <div class="stat" role="group" aria-label="Memnuniyet oranı" style="flex:1; min-width:120px;">
+          <div class="num" data-count="94" style="font-size:2.2rem; font-weight:bold;">0</div>
+          <div class="lbl" style="margin-top:6px; font-size:0.9rem; color:#555;">% Memnuniyet</div>
+        </div>
+
       </div>
     </section>
+
+
 
     <!-- ===== ÖZELLİKLER ===== -->
     <section id="ozellikler" aria-labelledby="ozellikler-title">
       <h2 id="ozellikler-title"><i class="fas fa-star"></i> Özellikler</h2>
-      <p class="sub">Mevcut içeriğiniz korunarak profesyonelce sunuldu.</p>
+      <p class="sub">
+        Takbis Plus, Tapu ve Kadastro memurlarının iş akışlarını hızlandırmak ve verimliliği maksimize etmek için geliştirilmiş akıllı bir çözümdür.  
+        Tekrarlayan işlemleri otomatikleştirir, hataları minimize eder ve günlük görevlerinizi hızlı ve güvenli şekilde tamamlamanızı sağlar.
+      </p>
 
       <div class="searchbar" role="search" aria-label="Özellik arama">
         <input id="featureSearch" type="search" placeholder="Özellik ara (örn. imza, SMS, mirasçı...)" aria-label="Özellik ara">
       </div>
+
 
       <div class="grid" id="featureGrid" aria-live="polite">
         <!-- Orijinal içerik + modal tetikleyicileri -->
@@ -362,7 +567,10 @@
     <!-- ===== PLANLANANLAR ===== -->
     <section id="planlananlar" aria-labelledby="planlananlar-title">
       <h2 id="planlananlar-title"><i class="fas fa-tasks"></i> Yapılması Planlananlar</h2>
-      <p class="sub">Yolda olan geliştirmeler.</p>
+        <p class="sub">
+          Takbis Plus ekibi, programı sürekli geliştirmek ve memurların iş akışını daha da hızlandırmak için yeni özellikler üzerinde çalışıyor.  
+          Yolda olan güncellemeler, güvenlik iyileştirmeleri ve kullanıcı dostu eklemelerle deneyiminizi güçlendirin.
+        </p>
       <div class="grid">
         <article class="card feature" data-tags="çökme zaten çalışıyor" tabindex="0" onclick="openDetail('modal-11')" onkeypress="if(event.key==='Enter') openDetail('modal-11')">
           <i class="fas fa-bug" aria-hidden="true"></i>
@@ -401,11 +609,14 @@
         </article>
       </div>
     </section>
-
     <!-- ===== EKRAN GÖRÜNTÜLERİ ===== -->
     <section id="ekran-goruntuleri" aria-labelledby="gallery-title">
       <h2 id="gallery-title"><i class="fas fa-images"></i> Ekran Görüntüleri</h2>
-      <p class="sub">Tıkla, büyüt ve kaydır — detayları yakınlaştırarak incele. (dokunma ve klavye destekli)</p>
+      <p class="sub">
+        Takbis Plus deneyimini yakından keşfedin.  
+        Görselleri tıklayarak büyütün, kaydırarak gezin ve detayları yakınlaştırın.  
+        Tam dokunmatik ve klavye desteği ile rahat bir inceleme deneyimi sunar.
+      </p>
 
       <div class="gallery-grid" id="galleryGrid" aria-label="Görsel galerisi">
         <figure class="gallery-thumb" tabindex="0" data-src="src/img/0.png">
@@ -449,29 +660,47 @@
 
       </div>
     </section>
-
+      
+    
+    
     <!-- ===== FAQ ===== -->
-    <section aria-labelledby="faq-title">
-      <h2 id="faq-title"><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</h2>
-      <div class="faq grid" role="list">
-        <div class="card faq-item" role="listitem" tabindex="0">
-          <h4><i class="fas fa-coins"></i> Program ücretli mi?</h4>
-          <p>Hayır, tamamen ücretsizdir.</p>
+      <section aria-labelledby="faq-title">
+        <h2 id="faq-title"><i class="fas fa-question-circle"></i> Sık Sorulan Sorular</h2>
+        <div class="faq grid" role="list">
+
+          <div class="card faq-item" role="listitem" tabindex="0">
+            <h4><i class="fas fa-coins"></i> Program ücretli mi?</h4>
+            <p>Hayır, Takbis Plus tamamen ücretsizdir. Kurumsal veya bireysel kullanım fark etmeksizin tüm memurlar tarafından kullanılabilir.</p>
+          </div>
+
+          <div class="card faq-item" role="listitem" tabindex="0">
+            <h4><i class="fas fa-user-shield"></i> Güvenli mi?</h4>
+            <p>Program sadece sizin bilgisayarınızda çalışır ve hiçbir veriyi dışarıya göndermez. İşlemleriniz tamamen yerel ve güvenli şekilde gerçekleşir.</p>
+          </div>
+
+          <div class="card faq-item" role="listitem" tabindex="0">
+            <h4><i class="fas fa-sync"></i> Güncellemeler nasıl yapılır?</h4>
+            <p>Takbis Plus, güncel sürümlerini otomatik olarak kontrol eder. Tek bir tıklama ile en son özelliklere ve düzeltmelere erişebilirsiniz.</p>
+          </div>
+
+          <div class="card faq-item" role="listitem" tabindex="0">
+            <h4><i class="fas fa-laptop-code"></i> Hangi sistemlerde çalışır?</h4>
+            <p>Windows 8, 10 ve 11 dahil olmak üzere tüm Windows tabanlı bilgisayarlarda sorunsuz çalışır.</p>
+          </div>
+
+          <div class="card faq-item" role="listitem" tabindex="0">
+            <h4><i class="fas fa-bolt"></i> İş akışımı hızlandırır mı?</h4>
+            <p>Evet, tekrarlayan işlemleri otomatikleştirir ve günlük işlerinizi dakikalar içinde tamamlamanızı sağlar. Memurların verimliliğini ciddi şekilde artırır.</p>
+          </div>
+
+          <div class="card faq-item" role="listitem" tabindex="0">
+            <h4><i class="fas fa-question"></i> Destek alabilir miyim?</h4>
+            <p>Takbis Plus ile birlikte hızlı ve anlaşılır bir rehber sunulur. Ayrıca destek talepleriniz için e-posta ve sık sorulan sorular bölümü her zaman hazırdır.</p>
+          </div>
+
         </div>
-        <div class="card faq-item" role="listitem" tabindex="0">
-          <h4><i class="fas fa-user-shield"></i> Güvenli mi?</h4>
-          <p>Sadece sizin bilgisayarınızda çalışır, dışa veri aktarmaz.</p>
-        </div>
-        <div class="card faq-item" role="listitem" tabindex="0">
-          <h4><i class="fas fa-sync"></i> Nasıl güncellenir?</h4>
-          <p>Program içindeki güncelleme kontrolü ile otomatik yapılabilir.</p>
-        </div>
-        <div class="card faq-item" role="listitem" tabindex="0">
-          <h4><i class="fas fa-laptop-code"></i> Nerede çalışır?</h4>
-          <p>Windows tabanlı tüm bilgisayarlarda çalışabilir.</p>
-        </div>
-      </div>
-    </section>
+      </section>
+
 
     <!-- ===== KURULUM ===== -->
     <section id="indir" aria-labelledby="indir-title">
@@ -486,17 +715,23 @@
         <h2 style="margin-bottom:10px"><i class="fas fa-download"></i> Takbis Plus'ı İndir</h2>
         <div class="indirbtn" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
           <a class="btn btn-primary" href="src/exe/Kurulum.exe" download><i class="fas fa-download"></i> Şimdi İndir</a>
-          <a class="btn" href="#" id="showChecksum"><i class="fa-solid fa-shield"></i> Doğrulama (SHA256)</a>
+
           <a class="btn" href="#" id="copyDl"><i class="fa-solid fa-link"></i> Linki Kopyala</a>
         </div>
         <div id="checksumBox" style="display:none;margin-top:10px;color:var(--muted);font-family:monospace">SHA256 hesaplanıyor…</div>
       </div>
     </section>
+
+
+
+
+
+    
   </main>
 
   <footer>
     &copy; <span id="year"></span> Takbis Plus | Bu yazılım herhangi bir ticari amaç için geliştirilmemiştir. <br>
-    Hata ve öneriler 🪪 tk120407 / <a href="mailto:tkgmplus@gmail.com">tkgmplus@gmail.com</a> | Tüm Hakları Saklıdır
+    Hata ve öneriler için; 🪪 tk120407 veya <a href="mailto:tkgmplus@gmail.com">tkgmplus@gmail.com</a> | Tüm Hakları Saklıdır
   </footer>
 
   <!-- ===== GALLERY MODAL (FULL FEATURE) ===== -->
@@ -559,21 +794,61 @@
     </div>
   </div>
 
+
+
+
+
+
   <!-- Changelog modal -->
-  <div class="modal detail-modal" id="modal-changelog"><div class="modal-close" onclick="closeDetail('modal-changelog')">&times;</div>
-    <div class="modal-content">
-      <h3>Sürüm Notları (v1.3)</h3>
-      <ul>
-        <li>PWA iyileştirmeleri, offline cache</li>
-        <li>Geliştirilmiş gallery zoom/pan dokunma desteği</li>
-        <li>Klavye kısayolları ve erişilebilirlik iyileştirmeleri</li>
-        <li>Checksum hesaplama (SHA-256, izin verilirse)</li>
-      </ul>
+<div class="modal detail-modal" id="modal-changelog">
+  <div class="modal-close" onclick="closeDetail('modal-changelog')">&times;</div>
+
+  <div class="modal-content">
+    <div class="dev-note">
+      <h3>📢 Geliştiriciden Mesaj</h3>
+
+     <p>
+        Günlük operasyonlarımızı hızlandırmak için hazırladığımız küçük bir otomasyon denemesi,
+        zamanla kapsamlı bir araca dönüştü. Çözüm odaklı yaklaşımımızı paylaşarak 
+        benzer ihtiyaçları olan herkesin aynı kolaylıktan yararlanabileceğini gördük.
+      </p>
+
+      <p>
+        Bu nedenle Takbis Plus’ı sürekli geliştiriyor, verimliliği artıran, 
+        hata payını azaltan ve kullanıcı deneyimini iyileştiren yeni özellikler 
+        eklemeye odaklanıyoruz. Topluluk geri bildirimleri, yol haritamızı 
+        belirleyen en önemli unsur.
+      </p>
+
+      <p>
+        Bilgi ve deneyim paylaştıkça değer kazanır; projenin açık kalması ve 
+        herkesin katkıda bulunabilmesi de bu anlayışın bir parçası.
+      </p>
+
+      <p class="sign">
+        İlginiz ve desteğiniz için teşekkür ederim.<br>
+        <em>— Yunus TUNCER</em>
+      </p>
+
+      <div class="dev-actions">
+        <a href="mailto:tkgmplus@gmail.com" class="btn primary">Görüşünüzü Paylaşın</a>
+        <!-- <a href="https://github.com/ornek/takbis-plus" target="_blank" class="btn secondary">GitHub</a>
+        <a href="/indir" class="btn download">⬇ İndir</a> -->
+      </div>
     </div>
   </div>
+</div>
+
+
+
+
+
+
+
 
   <div class="fab">
-    <button class="helpbtn" id="changelogBtn" aria-label="Sürüm notları" title="Yenilikler"><i class="fa-solid fa-bell"></i></button>
+  <button class="helpbtn" id="changelogBtn" aria-label="Sürüm notları" title="Yenilikler"><i class="fa-solid fa-user-pen"></i></button>
+
     <button class="backtop" id="backtop" aria-label="Yukarı çık"><i class="fa-solid fa-arrow-up"></i></button>
   </div>
 
@@ -706,7 +981,7 @@
       const copyMail = document.getElementById('copyMail');
       if(copyMail){
         copyMail.addEventListener('click', async ()=>{
-          try{ await navigator.clipboard.writeText('tkgmplus@gmail.com'); toast('E-posta adresi kopyalandı: tkgmplus@gmail.com'); }
+          try{ await navigator.clipboard.writeText('tkgmplus@gmail.com'); toast('E-Mail kopyalandı.'); }
           catch{ toast('Kopyalama izin verilmedi'); }
         });
       }
@@ -719,7 +994,7 @@
       shareBtn.addEventListener('click', async ()=>{
         try{
           if(navigator.share){ await navigator.share({title:document.title, text:'Takbis Plus | TAKBİS’de Akıllı Yardımcınız', url:location.href}); }
-          else{ await navigator.clipboard.writeText(location.href); toast('Bağlantı panoya kopyalandı'); }
+          else{ await navigator.clipboard.writeText(location.href); toast('Bağlantı kopyalandı'); }
         }catch(err){}
       });
     })();
@@ -736,29 +1011,7 @@
       }
     })();
 
-    /* ===== Checksum (SHA-256) - best effort (CORS may block) ===== */
-    (function(){
-      const showChecksum = document.getElementById('showChecksum');
-      if(!showChecksum) return;
-      showChecksum.addEventListener('click', async (e)=>{
-        e.preventDefault();
-        const box = document.getElementById('checksumBox');
-        box.style.display = box.style.display==='none' ? 'block' : 'none';
-        if(box.dataset.done) return;
-        try{
-          const url = (location.origin.endsWith('/') ? location.origin : location.origin + '/') + 'src/exe/Kurulum.exe';
-          const res = await fetch(url, {mode:'cors'});
-          if(!res.ok) throw new Error('fetch fail');
-          const buf = await res.arrayBuffer();
-          const hash = await crypto.subtle.digest('SHA-256', buf);
-          const hex = [...new Uint8Array(hash)].map(b=>b.toString(16).padStart(2,'0')).join('');
-          box.textContent = 'SHA256: ' + hex;
-          box.dataset.done = '1';
-        }catch(err){
-          box.textContent = 'SHA256: CORS engeli nedeniyle hesaplanamadı. İndirip yerelde doğrulayın.';
-        }
-      });
-    })();
+
 
     /* ===== Generic detail modals handling ===== */
     function openDetail(id){
@@ -772,39 +1025,28 @@
       if(focusable) focusable.focus();
       document.body.style.overflow = 'hidden';
     }
+
     function closeDetail(id){
       const m = document.getElementById(id);
       if(!m) return;
       m.style.display = 'none';
       m.removeAttribute('open');
       m.setAttribute('aria-hidden','true');
-      document.body.style.overflow = '';
+      document.body.style.overflow = ''; // overflow'ı geri aç
     }
-    window.openDetail = openDetail; window.closeDetail = closeDetail;
+
+    // global erişim
+    window.openDetail = openDetail;
+    window.closeDetail = closeDetail;
+
     // close on click outside for modals
-    window.addEventListener('click', (e)=>{ if(e.target.classList && e.target.classList.contains('modal')) e.target.style.display='none'; });
-
-    /* ===== Shortcuts modal open via ? and shortcutBtn ===== */
-    (function(){
-      const shortcutBtn = document.getElementById('shortcutBtn');
-      if(shortcutBtn) shortcutBtn.addEventListener('click', ()=> openDetail('modal-shortcuts'));
-      document.addEventListener('keydown', (e)=>{ if(e.key==='?'){ openDetail('modal-shortcuts'); } });
-    })();
-
-    /* ===== g then key navigation ===== */
-    (function(){
-      let gPressed = false; let gTimer;
-      document.addEventListener('keydown', (e)=>{
-        if(e.key==='g'){ gPressed=true; clearTimeout(gTimer); gTimer=setTimeout(()=>gPressed=false, 1200); }
-        else if(gPressed){
-          if(e.key==='o') location.hash = '#ozellikler';
-          if(e.key==='p') location.hash = '#planlananlar';
-          if(e.key==='e') location.hash = '#ekran-goruntuleri';
-          if(e.key==='i') location.hash = '#indir';
-          gPressed=false;
-        }
-      });
-    })();
+    window.addEventListener('click', (e) => { 
+      if (e.target.classList && e.target.classList.contains('modal')) {
+        // modal id'si varsa closeDetail kullan
+        const id = e.target.id;
+        closeDetail(id);
+      }
+    });
 
     /* ===== Gallery modal: advanced zoom/pan/keyboard/touch ===== */
     (function(){
@@ -1079,6 +1321,75 @@
 
   <!-- GLightbox CDN (keeps gallery progressive) -->
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  
+  
+  <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll(".num");
+
+    counters.forEach(counter => {
+      const target = +counter.getAttribute("data-count");
+      let count = 0;
+      const speed = target / 100;
+
+      const updateCount = () => {
+        if(count < target){
+          count += speed;
+          if(target % 1 !== 0){
+            counter.textContent = (Math.floor(count*100)/100); // 2 basamaklı ondalık
+          } else {
+            counter.textContent = Math.floor(count);
+          }
+          requestAnimationFrame(updateCount);
+        } else {
+          counter.textContent = target;
+        }
+      };
+
+      updateCount();
+    });
+  });
+
+
+
+
+
+    // Tam ekran butonu
+    gmFull && gmFull.addEventListener('click', async () => {
+      try {
+        if (!document.fullscreenElement) {
+          await gmPanel.requestFullscreen();
+        } else {
+          await document.exitFullscreen();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    });
+
+    // Kapat butonu
+    gmClose && gmClose.addEventListener('click', async () => {
+      try {
+        // Eğer tam ekran modundaysa çık
+        if (document.fullscreenElement) {
+          await document.exitFullscreen();
+        }
+      } catch (err) {
+        console.error(err);
+      }
+      // Modalı kapat
+      galleryModal.setAttribute('aria-hidden', 'true');
+    });
+
+
+
+
+
+  </script>
+
 
 </body>
 </html>
+
+
+

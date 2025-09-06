@@ -462,6 +462,20 @@
   50% { transform: scale(1.15); }
 }
 
+/* Mobil uyumluluk - arama kutusu üstte, 21 özellik altta */
+@media screen and (max-width: 600px) {
+  .searchbar-wrapper {
+    flex-direction: column;
+    align-items: stretch; /* arama kutusu tam genişlikte */
+    gap: 0.5rem;          /* alt boşluk */
+  }
+
+  .feature-count {
+    width: fit-content;
+    margin: 0 auto;      /* ortalanmış */
+  }
+}
+
 
 
   </style>

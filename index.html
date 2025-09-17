@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Takbis Plus – Teşekkürler</title>
+  <meta name="description" content="Takbis Plus kapanış sayfası – Kullanıcılarımıza teşekkür ederiz.">
+  <meta name="author" content="Takbis Plus Ekibi - Yunus TUNCER (tk120407)">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #0d6efd, #00bcd4);
+      --fg: #1a1a1a;
+      --card-bg: rgba(255, 255, 255, 0.7);
+      --muted: #555;
+      --accent: #0d6efd;
+      --radius: 22px;
+      --transition: 0.3s ease;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: linear-gradient(135deg, #0a0a0a, #1e1e1e);
+        --fg: #eaeaea;
+        --card-bg: rgba(24, 24, 24, 0.65);
+        --muted: #aaa;
+        --accent: #00bcd4;
+      }
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "Segoe UI", Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      display: flex;
+      justify-content: center; /* yatay ortala */
+      padding: 20px;
+      position: relative;
+      min-height: 100vh;
+      overflow-x: hidden; /* yatay scroll engelle */
+      overflow-y: auto;   /* dikey scroll */
+    }
+    /* Arka plan derinlik */
+    body::before,
+    body::after {
+      content: "";
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.35;
+      z-index: 0;
+    }
+    body::before {
+      position: absolute;
+      width: 420px; height: 420px;
+      background: #0d6efd;
+      top: -120px; left: -130px;
+    }
+    /* Alt blur efekti scroll ile görünür */
+    body::after {
+      position: fixed; 
+      width: 380px; height: 380px;
+      background: #00bcd4;
+      bottom: -50px; right: -110px;
+    }
+    main {
+      position: relative;
+      z-index: 1;
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      box-shadow:
+        0 10px 25px rgba(0,0,0,0.25),
+        0 20px 50px rgba(0,0,0,0.18),
+        inset 0 1px 0 rgba(255,255,255,0.25);
+      max-width: 880px;
+      width: 95%;
+      padding: 50px 40px;
+      text-align: center;
+      animation: fadeIn 0.9s ease;
+      margin: 40px 0;
+    }
+    .icon {
+      font-size: 3.5rem;
+      color: var(--accent);
+      margin-bottom: 20px;
+      animation: pulse 2s infinite;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    p {
+      margin: 14px 0;
+      line-height: 1.6;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .credits {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    .credits strong {
+      color: var(--accent);
+    }
+    .credits small {
+      display: block;
+      margin-top: 8px;
+      font-size: 0.8rem;
+      opacity: 0.85;
+    }
+    .socials {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .socials a {
+      font-size: 1.4rem;
+      color: var(--muted);
+      transition: var(--transition);
+      padding: 8px;
+    }
+    .socials a:hover {
+      color: var(--accent);
+      transform: scale(1.18);
+    }
+    footer {
+      margin-top: 30px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(25px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+    @keyframes pulse {
+      0%, 100% {transform: scale(1);}
+      50% {transform: scale(1.08);}
+    }
+    /* Mobil uyum */
+    @media (max-width: 768px) {
+      main {
+        padding: 35px 20px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 0.95rem;
+      }
+    }
+    @media (max-width: 480px) {
+      main {
+        padding: 28px 18px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 0.9rem;
+      }
+      .icon {
+        font-size: 2.8rem;
+      }
+    }
+  </style>
+
+</head>
+<body>
+<main role="main">
+  <div class="icon"><i class="fa-solid fa-handshake"></i></div>
+  <h1>Teşekkürler!</h1>
+  <p>
+      <strong>Takbis Plus</strong>, tamamen gönüllü katkılarla geliştirilmiş ve iş süreçlerini kolaylaştırmayı hedefleyen bir projeydi.  
+      Bu süreçte destek veren, fikirlerini paylaşan ve emek harcayan herkese içtenlikle teşekkür ederiz. 💛
+  </p>
+
+  <p>
+      Ne yazık ki, kurum içi <strong>bilgi teknolojileri ve güvenlik politikaları</strong> gereği  
+      projeyi sürdürmemiz mümkün olmadığından yayını sonlandırma kararı aldık.  
+      Yine de, katkıda bulunan herkesin emeği ve güzel dilekleri bizlerle kalacak.
+  </p>
+
+  <p>
+      Bilgi ve deneyim paylaşıldıkça çoğalır. 🌱
+  </p>
+
+
+
+  <div class="credits" style="text-align:center; line-height:1.5; margin-top:30px; font-family:'Segoe UI', Roboto, sans-serif;">
+  Geliştirici: 
+  <strong 
+      id="copyEmail" 
+      style="color:#0d6efd; cursor:pointer;"
+      title="E-posta adresini kopyala">
+      Yunus TUNCER (tk120407)
+  </strong>
+  <small style="
+      display:inline-block;
+      margin-top:10px;
+      color:#ffffff;
+      background: rgba(0, 188, 212, 0.2);
+      padding: 5px 13px;
+      border-radius: 12px;
+      font-size:0.85rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  ">
+    Kaynak kodlar ilgili yetkililerle paylaşılmıştır, uygun görülmesi halinde resmî olarak sunulabilir.
+  </small>
+</div>
+
+<!-- Bildirim -->
+<div id="toast" style="
+    visibility: hidden;
+    min-width: 150px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    bottom: 30px;
+    transform: translateX(-50%);
+    font-family:'Segoe UI', Roboto, sans-serif;
+    font-size: 0.9rem;
+">
+  mail kopyalandı!
+</div>
+
+  <footer>
+    &copy; 2025 Takbis Plus | Tüm Hakları Saklıdır
+  </footer>
+</main>
+</body>
+
+
+<script>
+  const copyBtn = document.getElementById('copyEmail');
+  const toast = document.getElementById('toast');
+  const email = 'tk120407@tkgm.gov.tr';
+
+  copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(email).then(() => {
+      toast.style.visibility = 'visible';
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.visibility = 'hidden';
+        toast.style.opacity = '0';
+      }, 2000); // 2 saniye göster
+    }).catch(err => {
+      alert('E-posta kopyalanamadı!');
+      console.error(err);
+    });
+  });
+</script>
+
+</html>

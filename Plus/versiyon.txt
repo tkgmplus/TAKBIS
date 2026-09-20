@@ -1,1 +1,2 @@
-v.25.16
+program_versiyon=25.16
+kurulum_versiyon=25.10
